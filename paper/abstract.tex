@@ -1,0 +1,23 @@
+Debugging is one of the most time-consuming and difficult aspects of
+software development.  Recent years have seen a wide variety of
+research efforts devoted to easing the burden of debugging by
+automatically localizing faults.  The most popular approaches use
+spectra of failing and successful executions to score program entities
+according to how likely they are to be faulty.  Since the original
+work on this topic, many formulas have been proposed to improve the
+accuracy of scores.  Most of these improvements are either marginal or
+context-dependent.  This paper proposes that, independent of the
+scoring method used, the effectiveness of spectrum-based localization
+can be dramatically improved by, when possible, delta-debugging
+failing test cases and basing localization only on the reduced test
+cases.  Unlike most formula changes, under reasonable assumptions
+reduction can never reduce the effectiveness of localization; we show
+that in practice, reduction very seldom reduces localization
+effectiveness.  Moreover, we show that for programs and faults taken
+from the standard localization literature, a large case study of
+Mozilla's JavaScript engine using 10 real faults, and for mutants of
+various open source projects, localizing only after reduction often
+produces much better rankings for faults than localization without
+reduction, independent of the localization formula used, and the
+improvement is often even greater than that provided by changing from
+the worst to the best localization formula for a subject.

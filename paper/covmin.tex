@@ -1,0 +1,129 @@
+\section{Coverage-Based Test Case Reduction}
+
+Delta debugging is an attractive approach to the quick test problem,
+in that it is a highly effective and easy-to-implement method for
+reducing redundancy in randomly generated tests.  Unfortunately,
+traditional delta debugging reduces tests \emph{too much}, discarding
+all behavior not related to the failure.  Delta debugging can be
+applied to the quick test problem, however, using a novel
+generalization.  The assumption has always been that delta debugging
+is a \emph{debugging} algorithm, only useful for reducing failures.
+However, the best way to understand \emph{ddmin}-like algorithms is
+that they reduce the size of a \emph{cause} (e.g. a test case, a
+thread schedule, etc.) while ensuring that it still causes some fixed
+\emph{effect} (in \emph{ddmin}, the effect is always test failure):
+\emph{ddmin} is a special-case of \emph{cause reduction}.\footnote{The
+authors would like to thank Andreas Zeller for suggesting the term
+``cause reduction.''}  The core value of delta debugging can be
+understood in a simple proposition: given two test cases that achieve
+the same purpose, the smaller of the two test cases will typically be
+easier to understand, execute more quickly, and so forth.  Delta
+debugging is valuable because, \emph{given two test cases that both
+serve the same purpose}, we almost always prefer the smaller of the
+two.  There is no reason why purpose should be limited to failure.
+For quick testing, \emph{code coverage} is a much more attractive
+property, in that it also helps detect new faults.
+
+
+%\subsection{Cause Reduction}
+
+The definitions provided in the core delta debugging paper \cite{DD}
+are \emph{almost} unchanged in cause reduction.  The one necessary
+alteration is to replace the function \emph{rtest}, which ``takes a
+program run and tests whether it produces the failure'' in Definition
+3 \cite{DD} with a function \emph{reffect} such that \emph{reffect}
+defines ``failure'' of a run as preserving any effect that
+holds for the original test case and ``success'' as not preserving
+that effect.  An actual failure is a particular instance of an effect
+to be preserved.  We call this ``new'' algorithm \emph{cause
+reduction} but, of course, it is almost exactly the same as the
+original \emph{ddmin} algorithm, and most optimizations or variations
+still apply.
+
+The most interesting consequence of this minor change is that
+\emph{ddmin} is no longer defined only for failing test cases.  If the
+effect chosen is well-defined for successful test cases,
+then \emph{ddmin} can be applied to reduce the cause (the test case)
+in that case also.  Are any interesting
+effects defined for all test cases important enough to inspire reduction efforts?
+
+\subsection{Coverage as an Effect}
+
+A large portion of the literature on software testing is devoted to
+precisely such a class of effects: running a test case always produces
+the effect of \emph{covering} certain source code elements, which can
+include statements, branches, data-flow relationships, state
+predicates, or paths.  High coverage is a common
+goal of testing, as high coverage correlates with effective fault
+detection \cite{ISSTA13}.  Producing \emph {small} test
+suites with high code coverage \cite{Harder} has long been a major
+goal of software testing efforts, inspiring a lengthy literature on
+how to minimize a test suite with respect to coverage, how to select
+tests from a suite based on coverage, and how to prioritize a test
+suite by coverage \cite{YooHarman}.  Coverage-based minimization
+reduces a \emph{suite} by removing test cases; using cause reduction,
+a suite can also (orthogonally) be reduced by minimizing each test in
+the suite (retaining all tests) with the effect being \emph{any chosen
+coverage criteria}.  The potential benefit of reduction at the test
+level is the same as at the suite level: more
+efficient testing, in terms of fault detection or code coverage per
+unit of time spent executing tests.  Cause reduction with respect to
+coverage is a promising approach for building quick tests, as random
+tests are likely to be highly reducible.
+
+As described in the introduction, \emph{ddmin} algorithms proceed by
+generating ``candidate'' tests: tests that are smaller than the
+original test case, but may preserve the property of interest, which
+in the original algorithm is ``this test fails.''  When evaluating the
+preservation check on a candidate reduced test case returns \ding{55}
+(indicating the test failed) \emph{ddmin} essentially starts over,
+with the candidate test case as the new starting point for reduction,
+until no candidates fail.  Preservation is formulated as follows
+for coverage-based reduction:
+
+\[ \mathit{reffect}(t_c,t_b) = \left\{ \begin{array}{lll}
+        & \mbox{iff $\forall s \in c(t_b) . s\in c(t_c)$} & \mbox{\ding{55}} \\
+        & \mbox{else} & \mbox{\ding{51}}\end{array} \right. \]
+
+\noindent where $t_c$ is the currently proposed smaller test, $t_b$ is
+the original test case, and $c(t)$ is the set of all coverage entities
+executed by $t$.  While it may be confusing that a valid reduction of
+the test case returns \ding{55} we maintain the terminology to show
+how little difference there is between generalized cause reduction and
+the \emph{ddmin} algorithm; recall that in \emph{ddmin} the point of
+preservation is to find tests that fail. Returning \ding{55} in our
+context means that the new test has preserved coverage and can
+therefore be used as the basis for further reduction efforts, while
+\ding{51} means that the candidate test does \emph{not} preserve
+coverage, and should be discarded (the fate of any successful test
+case in the original \emph{ddmin} algorithm).  Note that this
+definition allows a test case to be minimized to a test with
+\emph{better} coverage than the original test.  In practice, improved
+coverage seems rare: if a smaller test that does not preserve the
+added coverage can be found, \emph{ddmin} removes gained
+coverage.
+
+In principle, \emph{any} coverage criteria could be used as an effect.
+In practice, it is highly unlikely that reducing by extremely
+fine-grained coverages such as path or predicate coverages
+\cite{ISSTA13} would produce significant reduction.  Moreover,
+\emph{ddmin} is a very expensive algorithm to run when test cases do
+not reduce well, since every small reduction produces a new attempt to
+establish 1-minimality: small removals tend to result in a very large
+computational effort proportional to the reduction.  Additionally, for
+purposes of a quick test, it seems most important to concentrate on
+coverage of coarse entities, such as statements.  Finally, only branch
+and statement coverage are widely enough implemented for languages
+that it is safe to assume anyone interested in producing a quick test
+has tools to support their use.  For random testing, which is often
+carried out by developers or by security experts, this last condition
+is important: lightweight methods that do not require static or
+dynamic analysis expertise and are easy to implement from scratch are
+more likely to be widely applied \cite{ISSRE}.  
+%This paper
+%investigates cause reduction by statement and branch coverage only.
+
+%\subsection{Choosing a Coverage Criterion for Reduction}  
+
+
+

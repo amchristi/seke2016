@@ -1,0 +1,85 @@
+\section{Experimental Results}
+\label{sec:experiments}
+
+\subsection{Evaluation Measure}
+
+Because we aim to take into account the findings of Parnin and Orso
+\cite{AutoHelp}, our evaluation of fault localizations is based on a
+\emph{pessimistic absolute rank} of the highest ranked faulty
+statement.  That is, for each set of suspiciousness metrics computed,
+our measure of effectiveness is the \emph{worst possible position} at
+which the first faulty statement can be reached, when examining the
+code in suspiciousness-ranked order.\footnote{As usual since at least
+the work of Reneiris and Reiss\cite{NearNeighbor}, we consider
+reaching \emph{any} faulty statement to be sufficient.}  For example,
+if ten statements all receive a suspiciousness score of 1.0 (the
+highest possible suspiciousness), and one of these is the fault, we
+assign this localization a rank of 10; an unlucky programmer might
+examine this statement last of the ten highest-ranked statements.
+Pessimistic rank nicely distinguishes this result from another
+localization that also places the bug at score 1.0, but gives twenty
+statements a 1.0 score. In our view, following Parnin and Orso
+\cite{AutoHelp}, the most important goal of a localization is to
+direct the developer to a faulty statement as rapidly as possible,
+ignoring the size of the entire program or even of the faulty
+execution.  We considered counting all statements in the same basic
+block as ``the fault,'' given that spectrum-based approaches using
+statement coverage cannot localize below this granularity, but
+rejected this due to the potential need to eventually compare results
+with more sophisticated methods that use state or other information to
+provide finer-grained localizations.  In practice, due to basic block
+sizes and the fact that programmers won't always be ``unlucky'' and
+read the faulty code last, pessimistic rank may not show all cases
+where a localization would be useful in practice, but its primary
+purpose here is comparison.  We note that we did not provide
+statistical test information for our results because none of our
+experiments could be considered as sampled from some random
+distribution; given a suite and fault, results are not stochastic.
+Despite our efforts, the set of programs and faults used is not really
+a basis for precise statistical inferences.  We note that performing
+such an analysis would, of course, show the improvements of reduction
+to be statistically significant.
+
+\subsection{SIR Programs}
+\input{sir}
+
+\subsection{SpiderMonkey JavaScript Engine}
+\input{spidermonkey}
+
+\subsection{Open Source Projects}
+\label{sec:opensource}
+\input{opensource}
+
+
+\subsection{Threats to Validity}
+
+The primary threats to validity here are to external validity
+\cite{Threats}, despite our use of a larger number of faults and
+subjects than is usual in the literature.  Our subjects are all C or
+Java programs, for example, and for the open source projects we used
+seeded rather than real faults.  The all-too-frequent threats
+\cite{Threats} of relying on results for a single formula or of making
+comparisons that are not across exactly duplicated subjects and
+code-bases, however, are absent from our study by design.  To avoid
+construct threats, we developed independent experimental code-bases
+for some of the subjects, executed both, and compared results to
+cross-check the shared code base used for all subjects.  Fortunately,
+most tasks here are straightforward (test execution, coverage
+collection, delta-debugging, and calculation of scores).
+
+A second point (not strictly a threat) is that this paper focuses on
+single-fault localization.  Except for one case (where the SIR example
+has two separate faults), all our evaluations are over failures due to
+one fault.  This is intentional, but limits the applicability of our
+results to multi-fault settings.  The reasons for this choice are
+twofold: first, effective single-fault localization seems to be the
+minimal functionality required, and is easier to evaluate.  Second, we
+suspect that the most likely real-world uses of localization will be
+in single fault settings, either due to the existence of only one
+detected fault (as in the ``bugs during development'' discussed above)
+or in aggressive automated testing of mature software.  Even when
+there are multiple faults, it may be better to use techniques for
+clustering test cases by likely fault 
+\cite{Jones07,PLDI13,Podgurski03,Podgurski04} and then perform
+single-fault localization than to try to localize multiple faults at
+once.

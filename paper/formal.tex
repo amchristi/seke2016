@@ -1,0 +1,118 @@
+\section{Assumptions and Guarantees}
+\label{formal}
+
+In addition to being orthogonal to the spectrum-based localization
+formula used, test case reduction has a second major advantage
+independent of empirical results.  Namely, under a set of assumptions
+that hold in many cases, \emph{reduction can only improve, or leave
+unchanged, the effectiveness of localization}.  All formulas for
+localization have some instances in which they diminish the
+effectiveness of localization compared to an alternative formula
+\cite{yoo2014no}. For example, while Tarantula is not the most
+effective formula in most studies, it is often best for an
+individual fault and test suite, and may be more robust to
+coincidentally correct tests than some other formulas \cite{CCT}.
+Reducing failing tests before applying a formula, however, at worst
+leaves the effectiveness of localization unchanged, for most of the
+formulas in widespread use that we are aware of, under three
+assumptions:
+
+\begin{enumerate}
+\item all failing test cases used in the localization involve the same
+fault,
+\item each failing test case reduces to a test case that fails due to the same fault as the original test case, and
+\item reducing the input size (in components) also covers less code when the test executes.
+\end{enumerate}
+
+The first assumption is probably the least likely to hold in some
+settings; however, it is also the assumption that is least relied
+upon.  Reduction will only be harmful if some faulty code is removed
+from some failing test cases that executed it but where it was
+irrelevant to the fault.  While this is possible, it is only harmful
+when the removal of non-faulty lines does not overcome this in
+producing an overall ranking of statements.  That is, the localization
+will suffer when, for some reason, faulty lines that are not required
+for a given failure are removed at a \emph{higher rate} than non-faulty lines
+that are not required for that failure.  The second assumption is a usual assumption of delta-debugging.  Most
+delta-debugging setups are engineered with this goal in mind, often
+using some aspect of failure output or test case structure to keep
+``the same bug.''  Observed ``slippage'' rates for faults
+seem to be fairly low \cite{PLDI13}, even with little mitigation.
+Note that in the setting where a program has a single fault,
+assumptions 1 and 2 always hold.  In a single fault setting, the
+coverage vector for test cases for the faulty code (which must execute
+for failure to take place) will be the same before and after reduction
+of test cases.
+
+Finally, it is certainly \emph{possible} for delta-debugging based on
+input to increase coverage during execution.  In our experience, this
+is moderately uncommon, but it is certainly possible with standard
+delta-debugging setups.  In practice, this problem is very easily
+mitigated by adding as a second criteria for reduction that the test
+case not only still fail (in the same way) but that it execute no
+statements not executed by the original test case, an instance of
+cause reduction (generalized delta-debugging) \cite{ICST14}.  In this
+paper we have not applied this additional requirement, to show that
+even using already-existing delta-debugging infrastructure, developers
+can greatly improve the effectiveness of fault localization by first
+reducing failures.
+
+Given these assumptions, we now show that reduction is, at worst,
+harmless for most formulas.  Recall that spectrum-based localizations
+rely on only a few values relevant to each entity $e$ to be ranked in
+a localization: $\text{passed}(e)$, $\text{failed}(e)$,
+$\text{totalpassed}$, and $\text{totalfailed}$.  Given assumptions 1-3
+above, \emph{for faulty statements all of these formula elements will
+be unchanged after delta-debugging}.  For non-faulty statements, the
+only possible change is that $ \text{failed}(e)$ may be lower than
+before failing test cases were reduced. Holding the other values
+constant, it is trivial to show that most formulas under consideration
+are (as we would expect), monotonically increasing in
+$\text{failed}(e)$.  Therefore, after reduction, the suspiciousness
+scores for faulty statements are unchanged and the suspiciousness
+scores for non-faulty statements are either unchanged or lower.  The
+rank of all faulty statements is therefore either unchanged or
+improved.  There are many spectrum-based fault localization formulas
+in use. In our evaluation, we have used 3 well known examples, in
+addition to the basic Tarantula \cite{Jones2002} formula, as
+representative:
+
+{\bf Ochiai \cite{Ochai}:}
+$$ \text{suspiciousness}(e) = \frac{\text{failed}(e)}{\sqrt{(\text{totalfailed}) (\text{failed}(e) + \text{passed}(e))}} $$
+
+{\bf Jaccard \cite{Pinpoint}:}
+$$ \text{suspiciousness}(e) = \frac{\text{failed}(e)}{\text{failed(e)} + \text{totalfailed}} $$
+
+{\bf SBI: \cite{EmpirReduce,StatDebug}}
+$$ \text{suspiciousness}(e) = \frac{\text{failed}(e)}{\text{failed(e)} + \text{passed}(e)} $$
+
+
+All these formulas are monotonically increasing in
+$\text{failed}(e)$.\footnote{Proofs available on request, and to be posted on our web page as an appendix.} Reduction can only theoritically improve fault localization or in worst case leave it unchanged if formula under consideration is monotonically increasing $\text{failed}(e)$. We chose these 4 formulas as they were used before to study effect of \emph{test suite reduction on fault localizaiton},to study \emph{effect of test case purificaiton on fault localization} \cite{EmpirReduce} \cite{PureTest}. One of the formula that we found not to be monotonically increasing in $\text{failed}(e)$ is AMPLE \cite{AMPLE}. The guarantee that reduction can only improve fault localization effectiveness does not hold for such a case. We note that according the the
+theoretical analysis of Xie et al. \cite{Theoretical}, formulas making
+number of failed test cases containing $e$ the primary
+determinant of rank are best under certain assumptions, which fits
+our expectations for the impact of reduction well.
+
+
+
+\subsection{Limitations of Reduction for Localization}
+
+\emph{Reduce before you localize} only applies when you can actually
+reduce. First, some types of test inputs cannot be broken down into
+components and thus cannot be reduced: if a program takes as input a
+single integer, or fixed size vector of integers, we see no reasonable
+way to apply delta-debugging.  Similarly, in some cases the difficulty
+of maintaining test case validity during reduction is too high --- in
+such cases we also suspect that automated testing in general is hard
+to apply.  Finally, in some cases delta-debugging may technically
+apply but be of little value because test cases are already nearly
+minimal, and little coverage is lost when reduction is applied.  This
+happens more frequently than might be expected, for reasons discussed
+in Section \ref{sec:opensource}, but we also show that this may be
+less of a problem than it first appears.  In some cases, e.g. where
+the original test cases are very lengthy, reduction may be
+computationally expensive.  However, when reduction is possible and
+significant, we suspect that its value for debugging is so high that
+it will be worth the effort, even if it is not helpful for
+localization.

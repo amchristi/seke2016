@@ -1,0 +1,47 @@
+set terminal postscript eps enhanced monochrome
+
+dx=1
+n=2
+total_box_width_relative=0.75
+gap_width_relative=0.1
+d_width=(gap_width_relative+total_box_width_relative)*dx/2.
+
+set output "naspidermonkey.eps"
+
+set multiplot layout 2,1
+
+
+
+xticfont = ",10"
+yticfont = ",10"
+set grid
+set key box
+set key at 40, 4096
+set bmarg 3
+
+set ylabel noenhanced
+
+set ylabel "Rank of fault\n(SpiderMonkey)"
+
+set xtics rotate
+
+set boxwidth total_box_width_relative/n relative
+set style fill solid 1.0  noborder
+set label "Tarantula" at 1,250 rotate
+set label "Ochiai" at 2,250 rotate
+set label "Jaccard" at 3,250 rotate
+set label "SBI" at 4,250 rotate
+#set label "Ample" at 5,250 rotate
+
+
+set xrange [0:50]
+set yrange [1:9216]
+set xtics ("60" 0, "95" 5, "115" 10 , "360" 15, "880" 20, "1172" 25, "1294" 30, "1543" 35, "1561" 40, "1873" 45)
+
+set logscale y 2
+set ytics 2
+
+plot  "spidermonkey.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Orig.", "spidermonkey.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "DD"
+
+unset label
+set key off

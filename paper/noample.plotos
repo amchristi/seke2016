@@ -1,0 +1,101 @@
+set terminal postscript eps enhanced monochrome
+
+dx=1
+n=2
+total_box_width_relative=0.75
+gap_width_relative=0.1
+d_width=(gap_width_relative+total_box_width_relative)*dx/2.
+
+set output "opensource1.eps"
+
+xticfont = ",10"
+yticfont = ",10"
+set grid
+
+set key off
+set bmarg 3
+
+set ylabel noenhanced
+
+set ylabel "Rank of fault\n(Apache Validator)"
+
+set multiplot layout 3,1
+
+set xtics rotate
+
+set ytics 2
+set boxwidth total_box_width_relative/n relative
+set style fill solid 1.0 noborder
+
+
+set logscale y 2
+set ytics 2
+
+set yrange [0.5:196]
+set xrange [0:25]
+set xtics ("M1" 0, "M2" 5, "M3" 10, "M4" 15, "M5" 20)
+
+plot  "validator.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Orig.", "validator.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "DD"
+
+
+set yrange [0.5:384]
+set ylabel "Rank of fault\n(JExel)"
+
+
+set label "Tarantula" at 16,2 rotate
+set label "Ochiai" at 17,2 rotate
+set label "Jaccard" at 18,2 rotate
+set label "SBI" at 19,2 rotate
+#set label "Ample" at 23,2 rotate
+
+set key box
+set key at 24, 196
+
+
+plot  "Jexel.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Orig.", "Jexel.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "DD"
+
+unset key
+unset label
+
+set yrange [0.5:96]
+set ylabel "Rank of fault\n(JAxen)"
+
+plot  "Jaxen.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Before DD", "Jaxen.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+
+unset multiplot
+
+set output "opensource2.eps"
+
+set multiplot layout 2,1
+
+set ytics 2
+set boxwidth total_box_width_relative/n relative
+set style fill solid 1.0 noborder
+set label "Tarantula" at 11,17 rotate
+set label "Ochiai" at 12,17 rotate
+set label "Jaccard" at 13,17 rotate
+set label "SBI" at 14,17 rotate
+#set label "Ample" at 15,16 rotate
+
+set key box
+set key at 7,192
+
+set logscale y 2
+set yrange[0.5:384]
+
+set xtics ("M1" 0, "M2" 5, "M3" 10, "M4" 15, "M5" 20)
+set xrange [0:25]
+set ylabel "Rank of fault\n(JParser)"
+
+plot  "JParser.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Orig.", "JParser.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "DD"
+
+unset label
+set key off
+
+set ylabel "Rank of fault\n(Apache CLI)"
+
+set logscale y 2
+set yrange[0.5:256]
+
+plot  "CLI.before.data.noample" u 1:2 w boxes lc rgb"gray40" fill solid 0.7 title "Before DD", "CLI.after.data.noample" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+

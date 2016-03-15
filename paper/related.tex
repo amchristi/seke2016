@@ -1,0 +1,62 @@
+\section{Related Work}
+
+As discussed in the introduction, there is a very large body of work
+on spectrum-based fault localization
+(e.g. \cite{Tarantula,Ochai,AMPLE,Pinpoint,StatDebug,StatDebug2,EmpirReduce,Abreu:2006:PRDC,Santelices:ICSE:2009,Entropy,CCT}),
+all of which informs our work.  The most important motivational
+results for this paper are the investigation of Parnin and Orso
+\cite{AutoHelp} into the actual use of localizations for programmers,
+which inspired our evaluation methods, and the claim of Yoo et
+al. \cite{yoo2014no} that no single formula is best, which directed us
+to seek formula-independent improvements to localization.  Our use of
+many programs and methods was inspired by the threats identified by
+Steimann et al. to empirical assessments of fault localizations
+\cite{Threats}.  While our assumptions are not theirs (e.g., that test
+suites have 100\% statement coverage) the theoretical analysis of Xie
+et al. \cite{Theoretical} supports some of our intuitions about which
+formulas are most useful for localization, and our belief that
+counting appearances of entities in failures (the counts reduction
+attempts to reduce) is most critical to localization.
+
+The most similar actual proposed improvement to localization to ours is the
+entropy-based approach of Campos et al. \cite{Entropy} that uses
+EvoSuite \cite{FA11} to improve test suites.  The underlying
+approaches are quite different, but both aim to improve the spectra
+used in localization rather than change their interpretation.  The
+primary advantage of their approach over ours is that it can be of use
+when test cases cannot be reduced; on the other hand, EvoSuite is
+probably considerably harder to apply for most developers than
+off-the-shelf delta-debugging, and the delta-debugged test cases
+themselves are highly useful debugging products.  We also provide
+results for more localizations and many more programs (and types of
+programs).  Examining the faults used in their work, we suspect some
+of the open source failing test cases would reduce to a
+trivial-to-debug test case covering almost no non-faulty code.
+Another similar approach (sharing the same novel aspect of changing
+the test cases examined rather than the scoring function) is that of
+Xuan and Monperrus, who propose a \emph{purification} for test cases
+\cite{PureTest} that executes omitted assertions and uses dynamic
+slicing \cite{DynamicSlicing} to remove some code from failing test
+cases (parameterized by each assertion).  In practice, their dynamic
+slicing is performing some of the work we relegate to delta-debugging,
+and some of the effectiveness of their method is presumably due to
+lowering coverage of non-faulty code in the same manner, though this
+is not their explicit goal.  Delta-debugging can remove code from unit
+tests that would be in any dynamic slice, since it does not have to
+respect any property but that the test case still fails.  A core
+practical difference is that their approach \emph{only} applies to
+unit tests of method calls (since the slicing is at the test level,
+not of the program tested), and that we believe delta-debugging tools
+are more widely used and easily applicable than slicing tools (e.g
+they are language-independent).
+
+This paper also follows previous work on delta-debugging
+\cite{DD,DDISSTA,Yesterday} and its value in debugging tasks.  The
+most relevant recent work is the set of papers proposing that in
+addition to producing small test cases for humans to read,
+delta-debugging is a valuable tool in fully automated software
+engineering algorithms even if humans do not read the reduced tests:
+e.g., it is helpful for producing very fast regression suites
+\cite{icst2014}, for improving coverage with symbolic execution
+\cite{issta14}, and for clustering/ranking test cases by the
+underlying fault involved \cite{PLDI13}.

@@ -1,0 +1,87 @@
+set terminal postscript eps enhanced monochrome
+
+dx=1
+n=2
+total_box_width_relative=0.75
+gap_width_relative=0.1
+d_width=(gap_width_relative+total_box_width_relative)*dx/2.
+
+set output "all1.eps"
+
+xticfont = ",10"
+yticfont = ",10"
+set grid
+set key box
+set key at 16, 160
+set bmarg 3
+
+set ylabel noenhanced
+
+set ylabel "Rank of fault\n(print_tokens)"
+
+set multiplot layout 3,1
+
+set xtics rotate
+
+set ytics 20
+set boxwidth total_box_width_relative/n relative
+set style fill transparent solid 0.5 noborder
+set label "Tarantula" at 1,55 rotate
+set label "Ochai" at 2,55 rotate
+set label "Jaccard" at 3,55 rotate
+set label "Ample" at 4,55 rotate
+set label "SBI" at 5,55 rotate
+
+set xrange [0:42]
+set xtics ("v1" 0, "v2" 6, "v3" 12, "v4" 18, "v5" 24, "v6" 30, "v7" 36)
+
+plot  "printtokens.before.data" u 1:2 w boxes lc rgb"gray40" title "Before DD", "printtokens.after.data" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+
+unset label
+set key off
+
+set ytics 10
+set xrange [0:60]
+set xtics ("v1" 0, "v2" 6, "v3" 12, "v4" 18, "v5" 24, "v6" 30, "v7" 36, "v8" 42, "v9" 48, "v10" 54)
+set ylabel "Rank of fault\n(print_tokens2)"
+
+plot  "printtokens2.before.data" u 1:2 w boxes lc rgb"gray40" title "Before DD", "printtokens2.after.data" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+
+set ylabel "Rank of fault\n(replace)"
+set xrange [0:155]
+set xtics ("v1" 0, "v2" 6, "v3" 12, "v4" 18, "v5" 24, "v6" 30, "v7" 36, "v8"  42, "v9" 48, "v10" 54)
+# 15, "v5" 20, "v7" 25, "v8" 30, "v9" 35, "v10" 40, "v11" 45, "v12" 50, "v13" 55, "v14" 60, "v15" 65, "v16" 70, "v17" 75, "v18" 80, "v19" 85, "v20" 90, "v21" 95, "v22" 100, "v23" 105, "v24" 110, "v25" 115, "v26" 120, "v27" 125, "v28" 130, "v29" 135, "v30" 140, "v31" 145, "v32" 150)
+
+#plot  "replace.before.data" u 1:2 w boxes lc rgb"gray40" title "Before DD", "replace.after.data" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+
+unset multiplot
+
+set output "all2.eps"
+
+set multiplot layout 3,1
+
+set ytics 20
+set boxwidth total_box_width_relative/n relative
+set style fill transparent solid 0.5 noborder
+set label "Tarantula" at 1,55 rotate
+set label "Ochai" at 2,55 rotate
+set label "Jaccard" at 3,55 rotate
+set label "Ample" at 4,55 rotate
+set label "SBI" at 5,55 rotate
+
+set xrange [0:42]
+set xtics ("v1" 0, "v2" 6, "v3" 12, "v4" 18, "v5" 24, "v6" 30, "v7" 36)
+
+set ylabel "Rank of fault\n(schedule)"
+
+plot  "schedule.before.data" u 1:2 w boxes lc rgb"gray40" title "Before DD", "schedule.after.data" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"
+
+unset label
+set key off
+
+set ytics 50
+set xrange [0:60]
+set xtics ("v1" 0, "v2" 6, "v3" 12, "v4" 18, "v5" 24, "v6" 30, "v7" 36, "v8" 42, "v9" 48, "v10" 54)
+set ylabel "Rank of fault\n(schedule2)"
+
+plot  "schedule2.before.data" u 1:2 w boxes lc rgb"gray40" title "Before DD", "schedule2.after.data" u ($1+d_width):2 w boxes lc rgb"black" title "After DD"

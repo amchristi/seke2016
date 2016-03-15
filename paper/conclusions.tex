@@ -1,0 +1,59 @@
+\section{Conclusions and Future Work}
+
+Our primary conclusion is that, when possible, anyone attempting to
+use spectrum-based fault localization should use delta-debugging to
+\emph{reduce before localizing}.  Across Siemens subjects, real
+Mozilla SpiderMonkey bugs, and mutants of a set of open source
+projects, reducing test cases before localizing was seldom harmful and
+in the cases where it caused harm the effect size was much smaller
+than in the cases where reduction was helpful.  In most cases,
+reduction was helpful, and it was sometimes extremely effective,
+improving fault ranking by a factor of 2 (or more) and a very large
+absolute rank, sometimes hundreds of lines. This makes sense: if
+failing test cases only contained faulty code, fault localization
+would be trivial.  Delta-debugging, by (usually) reducing the coverage
+of non-faulty code, approaches this ideal situation as best we know
+how at present.  While delta-debugging is not a panacea for
+localization, in that it does not apply to some kinds of inputs and is
+sometimes not helpful, it often produces a very large improvement in
+localization effectiveness, quite often \emph{more so than can be
+gained by switching from worst to best formula}.
+
+In future work, we plan to examine whether adding constraints to avoid
+the infrequent cases where input size reduction \emph{increases}
+coverage improves the value of reduction.  There are a number of
+variations of this approach: e.g., simply disallowing coverage
+increases, or forcing reductions to actually reduce coverage as well
+as input size.  In theory, mutation of input as well as reduction
+could be applied, to see if nearby inputs cover less code but still
+fail (however, this requires an algorithm other than delta-debugging,
+and introduces a very large state space).  A second line of future
+work is to find a way to investigate actual ``dark matter'' bugs
+missing from the source histories and bug databases of projects.  Our
+use of mutants to simulate such faults is somewhat plausible but
+clearly not satisfactory.  One approach might be to use developer
+interviews or (more likely) captured IDE history \cite{Dangerous} to
+look into this type of fault, but this is resource-intensive and
+unlikely to be possible or remotely complete for many projects
+(e.g. open source projects have many developers, unlikely to all use
+an instrumented IDE).  Simply confirming (or refuting) the development
+patterns we speculate may give rise to ``dark matter'' bugs would be a
+useful contribution to understanding the real problems of
+localization.  More specific aspects of this question also arise: for
+example, what fraction of test cases in typical open source projects
+are specially crafted in response to a bug, rather than produced in
+hopes of detecting future bugs?
+
+Our larger take-away message is that the lessons of Parnin and Orso
+\cite{AutoHelp} should be taken to heart: rather than seek incremental
+improvements in localization effectiveness, we need large improvements
+in fault rank, and need to exploit all sources of information, not
+just coverage vectors.  Even when reduction does not assist
+localization, we believe that the reduced test cases are highly
+valuable debugging aids.  Furthermore, because no single formula is
+``best'' for all faults \cite{yoo2014no}, there is much to be gained
+by devising aids to fault localization that apply to any formula and
+any type of spectrum.  If automated fault localization is to be
+adopted in real-world settings, we need more than a competing set of
+ranking algorithms: we need a complete ecosystem for localization, debugging,
+and test understanding.

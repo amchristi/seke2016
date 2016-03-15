@@ -1,0 +1,76 @@
+\documentclass{article}
+\title{Proofs}
+\begin{document}
+
+Based on the assumptions mentioned in the paper and also from the fact that
+delta debugging reduces failing test cases:
+\begin{itemize}
+\item totalfailed amd total passed are constants. Test suite remains unchanged 
+and no changes are made to number of passing and failing test cases.
+\item Delta debugging is set to reduce only failing test cases, thus passed(e) remains
+unchanged.
+\end{itemize}
+\section{Tarantula}
+
+\[
+s(e) = \frac{\frac{f(e)}{TF}}{\frac{p(e)}{TP} + \frac{f(e)}{TF}}
+\]
+\[
+TF = k_2 > 0 (mostly) k_1 = \frac{P(e)}{TP} > 0
+\]
+\[
+y = \frac{\frac{x}{k_2}}{k_1 + \frac{x}{k_2}} = \frac{x}{k_2 k_1 + x}
+\]
+
+for some $x_2$ and $x_1$, $x_2 < x1$  but $y_2> y_1$
+\[
+\frac{x_2}{k_1 k_2+ x_2} > \frac{x_1}{k_2 k_1 + x_1}
+\]
+\[
+x_2 x_1 + x_2 k_2 k_1 > x_1 k_2 k_1 + x_1 x_2
+\]
+
+$k_2 k_1 (x_2 - x_1) > 0$ but $x_2 < x_1$ $x_2 - x_1 < 0$ which is impossible.
+Hence, s(e) is monotically increasing in f(e).
+
+\section{Ochiai}
+\[
+s(e)  = \frac{f(e)}{\sqrt{TF(p(e)+f(e))}}
+\]
+$TF = k_1 > 0 $ $p(c) = k_2> 0$ $s(c) = y$ $f(e)=x$
+$y=\frac{x}{\sqrt{k_1 (k_2 +x)}}$
+for some $x_2 < x_1$,$ y_2 > y_1$
+
+\[
+\frac{x_2}{\sqrt{k_1 (k_2 + x_2)}}> \frac{x_1}{ \sqrt{k_1(k_2 + x_1)}}
+\]
+
+
+\[
+\frac{x^{2}_2}{{k_1 (k_2 + x_2)}}> \frac{x^{2}_1}{k_1 (k_2 + x_1)}
+\]
+
+$x^{2}_2 k_2 + x^{2}_2 x_1 > x^{2}_1 k_2 + x^{2}_1 x_2$
+$x_2 x_1  (x_2 - x_1) + k_2 (x^{2}_{2}-x^{2}_{1}) > 0$
+which implies that $x_2 > x_1$.
+Hence, $s(e)$ is monotically increasing in $f(e)$
+
+\section{Jaccard}
+$s(e) = \frac{f(e)}{f(e)+TF}$
+$TF=k> 0$ $s(e)=y$ $f(e)=x$
+$y=\frac{x}{x+k}$ $k > 0$
+
+Proof by contradiction:
+Assume that for some $x_2 < x_1$ and $y_2 > y_1$
+
+\[
+\frac{x_2}{x_2 + k} > \frac{x_1}{x_1 + k}
+\]
+\[
+x_2 x_1 + x_2 k > x_1 x_2 + x_1 k
+\]
+
+$(x_2 - x_1) k > 0$ which implies that  $x_2 > x_1$
+Hence, $s(e)$ is monotically increasing in f(e).
+
+\end{document}
