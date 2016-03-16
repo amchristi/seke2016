@@ -96,23 +96,3 @@ our expectations for the impact of reduction well.
 
 
 
-\subsection{Limitations of Reduction for Localization}
-
-\emph{Reduce before you localize} only applies when you can actually
-reduce. First, some types of test inputs cannot be broken down into
-components and thus cannot be reduced: if a program takes as input a
-single integer, or fixed size vector of integers, we see no reasonable
-way to apply delta-debugging.  Similarly, in some cases the difficulty
-of maintaining test case validity during reduction is too high --- in
-such cases we also suspect that automated testing in general is hard
-to apply.  Finally, in some cases delta-debugging may technically
-apply but be of little value because test cases are already nearly
-minimal, and little coverage is lost when reduction is applied.  This
-happens more frequently than might be expected, for reasons discussed
-in Section \ref{sec:opensource}, but we also show that this may be
-less of a problem than it first appears.  In some cases, e.g. where
-the original test cases are very lengthy, reduction may be
-computationally expensive.  However, when reduction is possible and
-significant, we suspect that its value for debugging is so high that
-it will be worth the effort, even if it is not helpful for
-localization.
