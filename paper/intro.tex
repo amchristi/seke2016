@@ -14,25 +14,14 @@ use --- they typically only require the collection of coverage data
 and marking of tests as passing and failing, and thus are both
 computationally cheap and easy to fully automate.  Many formulas have
 been proposed as potentially improving the accuracy of scores
-\cite{Ochai,AMPLE,Pinpoint,StatDebug,Abreu:2006:PRDC} over Tarantula, and a variety of complex
-and simple methods to modify the basic spectrum-based approach have
-been proposed \cite{Santelices:ICSE:2009,Entropy,CCT}.
+\cite{Ochai,AMPLE,Pinpoint,StatDebug,Abreu:2006:PRDC} over Tarantula.
 
-Despite this large body of work and continuing interest, and the
-potentially high economic value of effective localization, there is no
-evidence of industrial adoption of spectrum-based localization
-\cite{wopdpanel} and there is recent concern about the long-term value
-of localization research.  First, Parnin and Orso asked the core
+Despite this large body of work and continuing interest, there is recent concern about the long-term value
+of localization research.  Parnin and Orso asked the core
 question: ``Are automated debugging techniques actually helping
 programmers?''  \cite{AutoHelp}, and did not receive comforting
-answers.  Second, it was shown that there is no single dominating
-``best'' formula for localization \cite{yoo2014no}.  Different
-formulas will perform best for different programs.  
-
-Parnin and Orso studied how actual programmers made use of
-localization techniques, including studying the effectiveness of
-localization using artificially high rank for faults \cite{AutoHelp}.
-Their conclusions included 1) a proposal to use absolute rank to
+answers.  Parnin and Orso studied how actual programmers made use of localization techniques \cite{AutoHelp}.
+and concluded 1) a proposal to use absolute rank to
 measure effectiveness, because developers lose interest in
 localizations after a very few incorrect suggestions, and 2) focus on
 using richer information (e.g. the actual test cases) rather than just
@@ -52,12 +41,7 @@ possible ranking of the faulty code.
 
 \subsection{Reduce Before You Localize}
 
-If failing test cases only executed faulty code, fault localization
-would not be an interesting research problem because fault
-localization would be the most trivial part of every debugging effort:
-localization would involve simply examining coverage of each failure.
-Of course, failing test cases usually execute a large number of
-non-faulty statements, which makes debugging very difficult.  It is
+Failing test cases, apart from executing faulty code normally executes large amount of non faulty code also, which makes debugging and fault localization non trivial.  It is
 often impossible to produce a failing test case that
 executes only faulty code.  However, it is also true that for any
 fault, there exist test cases that \emph{execute as little failing
