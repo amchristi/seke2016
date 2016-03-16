@@ -94,9 +94,7 @@ SpiderMonkey 1.6 has over 80KLOC, and even reduced failing tests
 typically executed over 8,000 lines of code, so a ``poor''
 localization may be useful in such a large fault search space.  For 6
 of the 10 bugs, all scores after reduction gave the fault a ranking of
-128 or better.  We also suspect that experienced developers could dismiss
-at least some of the lines in the rankings immediately, as we discuss
-next.
+128 or better.  
 
 In order to expand on how reduction improves localization, we examine in more detail the bug
 we call ``R1543,'' fixed by commit 3.36.16.1, and its Tarantula
@@ -115,28 +113,3 @@ became less suspicious after being removed from failing tests.  The
 average coverage for an unreduced failing test was 11,461 lines, which
 decreased to 8,349 (an average decrease of 3,112 lines) after reduction.
 
-When we looked at the lines ranked before the faulty lines, we found
-that 70 lines in unreduced ranking and 56 lines in post-reduction
-rankings were assigned suspiciousness values of 1.0. These lines
-execute only in failing test cases. Our further investigation suggests
-that many of these lines are actually failure handling and reporting
-code.  For example, 23 of the highly ranked lines for R1543 are part
-of the functions {\tt my\_ErrorReporter} and {\tt Quit} in {\tt js.c},
-clearly failure handling and reporting code that would not slow an
-experienced SpiderMonkey developer in reaching the actual fault.  We
-found such failure handling and reporting code in highly ranked lines
-for other bugs as well (finding them is fairly easy, as they have
-suspiciousness 1.0 by Tarantula).  While many lines that are not such
-obviously non-faulty code remain for many SpiderMonkey bugs, this
-suggests a follow-on to Parnin and Orso's experiments \cite{AutoHelp}:
-while they included some more experienced developers in their study,
-they did not investigate how developers highly skilled with \emph{a
-particular code base} use fault localization.  We speculate that while
-the raw rankings for many SpiderMonkey bugs are not very high, some of
-these results could be more useful than is apparent, in the hands of
-expert developers.  Such users are the most likely eventual industrial
-adopters of localization, we believe, for complex projects where
-debugging can be extremely difficult and time consuming and aggressive
-automated testing is used.\footnote{We the authors have submitted
-Chrome JavaScript engine bugs found during testing research and seen
-that it may take months to understand and fix some complex failures.}
