@@ -68,16 +68,7 @@ most tasks here are straightforward (test execution, coverage
 collection, delta-debugging, and calculation of scores).
 
 A second point (not strictly a threat) is that this paper focuses on
-single-fault localization.  Except for one case (where the SIR example
-has two separate faults), all our evaluations are over failures due to
-one fault.  This is intentional, but limits the applicability of our
-results to multi-fault settings.  The reasons for this choice are
-twofold: first, effective single-fault localization seems to be the
-minimal functionality required, and is easier to evaluate.  Second, we
-suspect that the most likely real-world uses of localization will be
-in single fault settings, either due to the existence of only one
-detected fault (as in the ``bugs during development'' discussed above)
-or in aggressive automated testing of mature software.  Even when
+single-fault localization.    Even when
 there are multiple faults, it may be better to use techniques for
 clustering test cases by likely fault 
 \cite{Jones07,PLDI13,Podgurski03,Podgurski04} and then perform
