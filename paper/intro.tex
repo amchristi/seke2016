@@ -43,9 +43,7 @@ possible ranking of the faulty code.
 
 Failing test cases, apart from executing faulty code normally executes large amount of non faulty code also, which makes debugging and fault localization non trivial.  It is
 often impossible to produce a failing test case that
-executes only faulty code.  However, it is also true that for any
-fault, there exist test cases that \emph{execute as little failing
-code as possible}.  Due to the way spectrum-based localizations work,
+executes only faulty code. Due to the way spectrum-based localizations work,
 reducing the amount of non-faulty code executed in failing test cases
 will almost always improve localization.  Consider the Tarantula
 \cite{Jones2002,Tarantula} formula.  Tarantula, like most spectrum-based
@@ -65,9 +63,7 @@ $$ \text{suspiciousness}(e) =  \frac{\frac{\text{failed}(e)}{\text{totalfailed}}
 
 It is easy to see that if we lower $\text{failed}(e)$ for all
 non-faulty statements, while keeping everything else unchanged, the
-rank (in suspiciousness) of faulty statements will improve.  If
-$\text{failed}(e)$ falls to 0 for all non-faulty statements, only
-faulty statements will be suspicious, a perfect localization.  Reducing coverage of non-faulty
+rank (in suspiciousness) of faulty statements will improve.   Reducing coverage of non-faulty
 statements in failing tests, then, is a potentially very effective  and
 formula-independent approach to improving localizations.
 
@@ -85,14 +81,10 @@ variation on binary search to remove individual components of a
 failing test case $t$ to produce a \emph{new} test case $t_{1min}$
 satisfying two properties: (1) $t_{1min}$ fails and (2) removing any
 component from $t_{1min}$ results in a test case that does not fail.
-Such a test case is called \emph{1-minimal}.  Because 1-minimal test
-cases are potentially much larger than the smallest possible set of
-failing components, we say that delta-debugging \emph{reduces} the
-size of a test case, rather than truly minimizing it.  The precise
+Such a test case is called \emph{1-minimal}. The precise
 details of delta-debugging and its variants can be complex; however,
 the family of delta debugging algorithms can generally be simply
-described.  Ignoring caching and the details of the divide-and-conquer
-strategy for constructing candidate test cases, DD for a
+described.  DD for a
 failing test case $t_b$ proceeds by iterating the following two
 steps:
 
