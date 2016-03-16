@@ -1,0 +1,112 @@
+\section{Reduce before you localize}
+
+
+Failing test cases, apart from executing faulty code normally executes large amount of non faulty code also, which makes debugging and fault localization non trivial.  It is
+often impossible to produce a failing test case that
+executes only faulty code.  However, it is also true that for any
+fault, there exist test cases that \emph{execute as little failing
+code as possible}.  Due to the way spectrum-based localizations work,
+reducing the amount of non-faulty code executed in failing test cases
+will almost always improve localization.  Consider the Tarantula
+\cite{Jones2002,Tarantula} formula.  Tarantula, like most spectrum-based
+approaches, determines how suspicious (likely to be faulty) a coverage
+entity $e$ (typically a statement) is based on a few values computed over
+a test suite:
+
+\begin{itemize}
+\item $\text{passed}(e)$:  \# of tests covering $e$ that pass
+\item $\text{failed}(e)$:  \# of tests covering $e$ that pass
+\item $\text{totalpassed}$:  the \# of passing tests
+\item $\text{totalfailed}$:  the \# of failing tests
+\end{itemize}
+
+$$ \text{suspiciousness}(e) =  \frac{\frac{\text{failed}(e)}{\text{totalfailed}}}{\frac{\text{failed}(e)}{\text{totalfailed}} + \frac{\text{passed}(e)}{\text{totalpassed}}}$$
+
+
+It is easy to see that if we lower $\text{failed}(e)$ for all
+non-faulty statements, while keeping everything else unchanged, the
+rank (in suspiciousness) of faulty statements will improve.  If
+$\text{failed}(e)$ falls to 0 for all non-faulty statements, only
+faulty statements will be suspicious, a perfect localization.  Reducing coverage of non-faulty
+statements in failing tests, then, is a potentially very effective  and
+formula-independent approach to improving localizations.
+
+Unfortunately, there is no method in the literature for reducing the
+amount of non-faulty code executed in test cases, to our
+knowledge.\footnote{Cause reduction \cite{icst2014}, as we note later,
+could probably be used for this purpose, but might be expensive and
+has not been applied to this goal.}  However, there \emph{is} a widely
+used method for reducing the size of failing test cases, delta-debugging.
+
+Delta-debugging \cite{DD} (DD for short) is an algorithm for reducing
+the size of failing test cases.  Delta-debugging algorithms have
+retained a common core since early proposals \cite{DDISSTA}: use a
+variation on binary search to remove individual components of a
+failing test case $t$ to produce a \emph{new} test case $t_{1min}$
+satisfying two properties: (1) $t_{1min}$ fails and (2) removing any
+component from $t_{1min}$ results in a test case that does not fail.
+Such a test case is called \emph{1-minimal}.  Because 1-minimal test
+cases are potentially much larger than the smallest possible set of
+failing components, we say that delta-debugging \emph{reduces} the
+size of a test case, rather than truly minimizing it.  The precise
+details of delta-debugging and its variants can be complex; however,
+the family of delta debugging algorithms can generally be simply
+described.  Ignoring caching and the details of the divide-and-conquer
+strategy for constructing candidate test cases, DD for a
+failing test case $t_b$ proceeds by iterating the following two
+steps:
+
+\begin{enumerate}
+\item Construct the next candidate simplification of $t_b$, which
+we call $t_c$.  Terminate if no $t_c$ remain ($t_b$ is 1-minimal).
+\item Execute $t_c$ by calling $\mathit{rtest}(t_c)$.  If $\mathit{rtest}$ returns \ding{55} (the test fails) then it is a simplification of $t_b$.  Set $t_b = t_c$.
+\end{enumerate}
+
+Delta-debugging reduces the size of a test case in terms of its
+components.  Its purpose is to produce small test cases that are
+easier for humans to read and understand, and thus debug.  In our long
+experience with delta-debugging \cite{ICSEDiff,AMAI} and in recent
+work on variations and applications of delta-debugging
+\cite{icst2014,issta14,PLDI13}, we noticed that in addition to
+reducing the ``static'' human-readable text of a test case,
+delta-debugging also almost always \emph{reduces the code covered by a
+failing test case}, often by hundreds or thousands of lines
+\cite{icst2014}.  The core proposal of this paper, therefore, is that
+\emph{failing test cases should be, when possible, reduced with
+delta-debugging before they are used in spectrum-based fault
+localization}: {\bf reduce before you localize}.  The original,
+unreduced, test cases should not be used, as they likely contain much
+irrelevant, non-faulty code that may mislead localization.
+
+Given that delta-debugging is extremely valuable on
+its own merits in debugging (it is generally agreed that it is
+absolutely required for effective random testing, for example
+\cite{MinUnit,ICSEDiff,TCminim}) and fits well into Parnin and Orso's
+proposal that debugging aids should focus on integrating all sources
+of information, including actual test cases, applying delta-debugging
+to failing test cases before localizing them is a low-cost,
+potentially high-value modification to spectrum-based fault
+localization.  Even if reduction does not improve the localization, we
+show that under some reasonable assumptions it will not produce a
+\emph{worse} localization, and at least the developer now has a set of
+smaller, easier-to-understand test cases to read.  In fact, we believe
+\emph{the only reason not to reduce test cases before localization, as a
+best practice, is when it is too onerous (or not possible) to set up
+delta-debugging for test cases.}
+
+In this paper, we show that using delta-debugging to reduce failing
+test cases, when applicable, does usually produce improvements in
+fault ranking, using a variety of standard localization formula from
+the literature, and these improvements are often dramatic.  In order
+to place our results on a firm empirical footing \cite{Threats} we
+provide results over both SIR/Siemens \cite{Siemens} suite subjects
+studied in previous literature, a set of real faults from an
+industrial-strength random testing framework for the SpiderMonkey
+JavaScript engine \cite{icst2014,jsfunfuzz}, and a variety of open
+source Java programs.  Not only does reducing failing tests produce
+improvements; the improvements produced are often even better than
+those provided by optimally switching formula.  While our results are
+not strong enough in terms of absolute ranking to ensure industrial
+adoption, they are a significant step towards an automated debugging
+ecosystem that can help real users debug real faults more quickly and
+more confidently.
