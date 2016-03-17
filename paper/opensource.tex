@@ -35,31 +35,12 @@ Subject & \#Classes. & \#Methods & SLOC & \#Test cases \\
 
 
 
-The SIR results show that reduction is useful for localization in an
-idealized setting where suites are relatively complete and faults are
-chosen for certain properties, and the Spidermonkey results show its
-value in a particularly challenging setting (where passing tests have
-very wide-ranging coverage).  How does reduction affect localization
-in a typical open source project?
-
-We attempted to answer this question by picking five open source Java
+Next we applied reduction based localization to five open source Java
 programs (shown in Table \ref{tab:opensourcesubs}) and generating mutants for each of the project to simulate bugs as it is commonly done in recent fault localization literature.\cite{mutant} \cite{PureTest}
 
 
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{opensource1}
-  \caption{First Set of Open Source Results}
-  \label{fig:opensource1}
-\end{figure}
 
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\columnwidth]{opensource2}
-  \caption{Second Set of Open Source Results}
-  \label{fig:opensource2}
-\end{figure}
 
  
 Our strategy was to create mutants in the same way as Xuan and
@@ -73,8 +54,7 @@ failure, which may include some test setup or oracle problems.  Using
 assertion failures only assures that we were remaining within the
 intent of the original tests.
 
-Figures \ref{fig:opensource1} and \ref{fig:opensource2} show the
-results of applying reduction to these simulated faults.  Taking all
+Detailed results of applying reduction based localization to all these bugs are available on our website. Taking all
 the open source projects and mutants together, we note that reduction
 improved fault ranking in 51 cases, left it unchanged in 55 cases, and
 made it worse in 2 cases.  The average improvement was 17.62 ranking
