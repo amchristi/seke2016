@@ -44,18 +44,6 @@ coverage vector for test cases for the faulty code (which must execute
 for failure to take place) will be the same before and after reduction
 of test cases.
 
-Finally, it is certainly \emph{possible} for delta-debugging based on
-input to increase coverage during execution.  In our experience, this
-is moderately uncommon, but it is certainly possible with standard
-delta-debugging setups.  In practice, this problem is very easily
-mitigated by adding as a second criteria for reduction that the test
-case not only still fail (in the same way) but that it execute no
-statements not executed by the original test case, an instance of
-cause reduction (generalized delta-debugging) \cite{ICST14}.  In this
-paper we have not applied this additional requirement, to show that
-even using already-existing delta-debugging infrastructure, developers
-can greatly improve the effectiveness of fault localization by first
-reducing failures.
 
 Given these assumptions, we now show that reduction is, at worst,
 harmless for most formulas.  Recall that spectrum-based localizations
