@@ -39,11 +39,7 @@ using some aspect of failure output or test case structure to keep
 ``the same bug.''  Observed ``slippage'' rates for faults
 seem to be fairly low \cite{PLDI13}, even with little mitigation.
 Note that in the setting where a program has a single fault,
-assumptions 1 and 2 always hold.  In a single fault setting, the
-coverage vector for test cases for the faulty code (which must execute
-for failure to take place) will be the same before and after reduction
-of test cases.
-
+assumptions 1 and 2 always hold.  For third assumption, it is moderately uncommon though slightly possible for reduced test cases to increase coverage but this can be mitigated easily by cause reduction, a generalized version of delta debugging. [cite] 
 
 Given these assumptions, we now show that reduction is, at worst,
 harmless for most formulas.  Recall that spectrum-based localizations
@@ -76,11 +72,7 @@ $$ \text{suspiciousness}(e) = \frac{\text{failed}(e)}{\text{failed(e)} + \text{p
 
 
 All these formulas are monotonically increasing in
-$\text{failed}(e)$.\footnote{Proofs available on request, and to be posted on our web page as an appendix.} Reduction can only theoritically improve fault localization or in worst case leave it unchanged if formula under consideration is monotonically increasing $\text{failed}(e)$. We chose these 4 formulas as they were used before to study effect of \emph{test suite reduction on fault localizaiton},to study \emph{effect of test case purificaiton on fault localization} \cite{EmpirReduce} \cite{PureTest}. One of the formula that we found not to be monotonically increasing in $\text{failed}(e)$ is AMPLE \cite{AMPLE}. The guarantee that reduction can only improve fault localization effectiveness does not hold for such a case. We note that according the the
-theoretical analysis of Xie et al. \cite{Theoretical}, formulas making
-number of failed test cases containing $e$ the primary
-determinant of rank are best under certain assumptions, which fits
-our expectations for the impact of reduction well.
+$\text{failed}(e)$.\footnote{Proofs available on request, and to be posted on our web page as an appendix.} Reduction can only theoritically improve fault localization or in worst case leave it unchanged if formula under consideration is monotonically increasing $\text{failed}(e)$. We chose these 4 formulas as they were used before to study effect of \emph{test suite reduction on fault localizaiton},to study \emph{effect of test case purificaiton on fault localization} \cite{EmpirReduce} \cite{PureTest}. 
 
 
 
