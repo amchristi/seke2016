@@ -1,4 +1,4 @@
-\section{Conclusions and Future Work}
+\section{Conclusions}
 
 Our primary conclusion is that, when possible, anyone attempting to
 use spectrum-based fault localization should use delta-debugging to
@@ -18,16 +18,6 @@ localization, in that it does not apply to some kinds of inputs and is
 sometimes not helpful, it often produces a very large improvement in
 localization effectiveness, quite often \emph{more so than can be
 gained by switching from worst to best formula}.
-
-In future work, we plan to examine whether adding constraints to avoid
-the infrequent cases where input size reduction \emph{increases}
-coverage improves the value of reduction.  There are a number of
-variations of this approach: e.g., simply disallowing coverage
-increases, or forcing reductions to actually reduce coverage as well
-as input size.  In theory, mutation of input as well as reduction
-could be applied, to see if nearby inputs cover less code but still
-fail (however, this requires an algorithm other than delta-debugging,
-and introduces a very large state space).  
 
 Our larger take-away message is that the lessons of Parnin and Orso
 \cite{AutoHelp} should be taken to heart: rather than seek incremental

@@ -8,10 +8,7 @@ that hold in many cases, \emph{reduction can only improve, or leave
 unchanged, the effectiveness of localization}.  All formulas for
 localization have some instances in which they diminish the
 effectiveness of localization compared to an alternative formula
-\cite{yoo2014no}. For example, while Tarantula is not the most
-effective formula in most studies, it is often best for an
-individual fault and test suite, and may be more robust to
-coincidentally correct tests than some other formulas \cite{CCT}.
+\cite{yoo2014no}. 
 Reducing failing tests before applying a formula, however, at worst
 leaves the effectiveness of localization unchanged, for most of the
 formulas in widespread use that we are aware of, under three
@@ -26,14 +23,7 @@ fault,
 
 The first assumption is probably the least likely to hold in some
 settings; however, it is also the assumption that is least relied
-upon.  Reduction will only be harmful if some faulty code is removed
-from some failing test cases that executed it but where it was
-irrelevant to the fault.  While this is possible, it is only harmful
-when the removal of non-faulty lines does not overcome this in
-producing an overall ranking of statements.  That is, the localization
-will suffer when, for some reason, faulty lines that are not required
-for a given failure are removed at a \emph{higher rate} than non-faulty lines
-that are not required for that failure.  The second assumption is a usual assumption of delta-debugging.  Most
+upon. The second assumption is a usual assumption of delta-debugging.  Most
 delta-debugging setups are engineered with this goal in mind, often
 using some aspect of failure output or test case structure to keep
 ``the same bug.''  Observed ``slippage'' rates for faults
