@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.8)  15 MAR 2016 00:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.8)  16 MAR 2016 22:44
 entering extended mode
 **mintest.tex
-(D:\personal\arpit\seke2016\paper\mintest.tex
+(D:\personal\arpit\seke2016\seke2016\paper\mintest.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(D:\personal\arpit\seke2016\paper\IEEEtran.cls
+(D:\personal\arpit\seke2016\seke2016\paper\IEEEtran.cls
 Document Class: IEEEtran 2012/11/21 V1.8c by Harald Hanche-Olsen and Anders Chr
 istensen
 -- Based on V1.7a by Michael Shell
@@ -147,7 +147,7 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(D:\personal\arpit\seke2016\paper\code.sty
+(D:\personal\arpit\seke2016\seke2016\paper\code.sty
 SEKE 8.5 x 11-Inch Proceedings Style `latex8.sty'.
 \@ctmp=\skip44
 \@figindent=\skip45
@@ -209,7 +209,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(D:\personal\arpit\seke2016\paper\mintest.aux)
+(D:\personal\arpit\seke2016\seke2016\paper\mintest.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
@@ -240,8 +240,12 @@ LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 51.
- (D:\personal\arpit\seke2016\paper\abstract.tex)
-(D:\personal\arpit\seke2016\paper\intro.tex
+ (D:\personal\arpit\seke2016\seke2016\paper\abstract.tex
+Missing character: There is no â in font ptmri7t!
+Missing character: There is no € in font ptmri7t!
+Missing character: There is no ™ in font ptmri7t!
+)
+(D:\personal\arpit\seke2016\seke2016\paper\intro.tex
 
 LaTeX Warning: Citation `Vesey' on page 1 undefined on input line 4.
 
@@ -274,237 +278,193 @@ LaTeX Warning: Citation `Abreu:2006:PRDC' on page 1 undefined on input line 17.
 
 
 
-LaTeX Warning: Citation `Santelices:ICSE:2009' on page 1 undefined on input lin
-e 19.
+LaTeX Warning: Citation `AutoHelp' on page 1 undefined on input line 22.
 
 
-LaTeX Warning: Citation `Entropy' on page 1 undefined on input line 19.
-
-
-LaTeX Warning: Citation `CCT' on page 1 undefined on input line 19.
-
-
-LaTeX Warning: Citation `wopdpanel' on page 1 undefined on input line 24.
-
-
-LaTeX Warning: Citation `AutoHelp' on page 1 undefined on input line 27.
+LaTeX Warning: Citation `AutoHelp' on page 1 undefined on input line 23.
 
 
 LaTeX Warning: Citation `yoo2014no' on page 1 undefined on input line 29.
 
 
-LaTeX Warning: Citation `AutoHelp' on page 1 undefined on input line 34.
+LaTeX Warning: Citation `Jones2002' on page 1 undefined on input line 49.
 
 
-LaTeX Warning: Citation `yoo2014no' on page 1 undefined on input line 40.
+LaTeX Warning: Citation `Tarantula' on page 1 undefined on input line 49.
 
-
-LaTeX Warning: Citation `Jones2002' on page 1 undefined on input line 67.
-
-
-LaTeX Warning: Citation `Tarantula' on page 1 undefined on input line 67.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
 
+LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 74.
+
+
+LaTeX Warning: Citation `DD' on page 2 undefined on input line 77.
+
+
+LaTeX Warning: Citation `DDISSTA' on page 2 undefined on input line 79.
+
+
+LaTeX Warning: Citation `ICSEDiff' on page 2 undefined on input line 88.
+
+
+LaTeX Warning: Citation `AMAI' on page 2 undefined on input line 88.
+
+
+LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `issta14' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Citation `PLDI13' on page 2 undefined on input line 90.
+
+
 LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 94.
 
 
-LaTeX Warning: Citation `DD' on page 2 undefined on input line 97.
+LaTeX Warning: Citation `Threats' on page 2 undefined on input line 113.
 
 
-LaTeX Warning: Citation `DDISSTA' on page 2 undefined on input line 99.
+LaTeX Warning: Citation `Siemens' on page 2 undefined on input line 114.
 
 
-LaTeX Warning: Citation `ICSEDiff' on page 2 undefined on input line 124.
+LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 117.
 
 
-LaTeX Warning: Citation `AMAI' on page 2 undefined on input line 124.
+LaTeX Warning: Citation `jsfunfuzz' on page 2 undefined on input line 117.
+
+) (D:\personal\arpit\seke2016\seke2016\paper\related.tex
+
+LaTeX Warning: Citation `Tarantula' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 126.
+LaTeX Warning: Citation `Ochai' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `issta14' on page 2 undefined on input line 126.
+LaTeX Warning: Citation `AMPLE' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `PLDI13' on page 2 undefined on input line 126.
+LaTeX Warning: Citation `Pinpoint' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 130.
+LaTeX Warning: Citation `StatDebug' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `MinUnit' on page 2 undefined on input line 140.
+LaTeX Warning: Citation `StatDebug2' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `ICSEDiff' on page 2 undefined on input line 140.
+LaTeX Warning: Citation `EmpirReduce' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `TCminim' on page 2 undefined on input line 140.
+LaTeX Warning: Citation `Abreu:2006:PRDC' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `Threats' on page 2 undefined on input line 157.
-
-
-LaTeX Warning: Citation `Siemens' on page 2 undefined on input line 158.
-
-
-LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 161.
-
-
-LaTeX Warning: Citation `jsfunfuzz' on page 2 undefined on input line 161.
-
-) [2] (D:\personal\arpit\seke2016\paper\related.tex
-
-LaTeX Warning: Citation `Tarantula' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Ochai' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `AMPLE' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Pinpoint' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `StatDebug' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `StatDebug2' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `EmpirReduce' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Abreu:2006:PRDC' on page 3 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Santelices:ICSE:2009' on page 3 undefined on input lin
+LaTeX Warning: Citation `Santelices:ICSE:2009' on page 2 undefined on input lin
 e 5.
 
 
-LaTeX Warning: Citation `Entropy' on page 3 undefined on input line 5.
+LaTeX Warning: Citation `Entropy' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `CCT' on page 3 undefined on input line 5.
+LaTeX Warning: Citation `CCT' on page 2 undefined on input line 5.
 
 
-LaTeX Warning: Citation `AutoHelp' on page 3 undefined on input line 8.
+LaTeX Warning: Citation `AutoHelp' on page 2 undefined on input line 8.
 
 
-LaTeX Warning: Citation `yoo2014no' on page 3 undefined on input line 10.
+LaTeX Warning: Citation `yoo2014no' on page 2 undefined on input line 10.
 
 
-LaTeX Warning: Citation `Threats' on page 3 undefined on input line 14.
+LaTeX Warning: Citation `Threats' on page 2 undefined on input line 14.
 
 
-LaTeX Warning: Citation `Theoretical' on page 3 undefined on input line 16.
+LaTeX Warning: Citation `Entropy' on page 2 undefined on input line 17.
 
 
-LaTeX Warning: Citation `Entropy' on page 3 undefined on input line 22.
+LaTeX Warning: Citation `FA11' on page 2 undefined on input line 18.
 
 
-LaTeX Warning: Citation `FA11' on page 3 undefined on input line 23.
+LaTeX Warning: Citation `PureTest' on page 2 undefined on input line 28.
 
 
-LaTeX Warning: Citation `PureTest' on page 3 undefined on input line 38.
+LaTeX Warning: Citation `DynamicSlicing' on page 2 undefined on input line 29.
 
 
-LaTeX Warning: Citation `DynamicSlicing' on page 3 undefined on input line 39.
+LaTeX Warning: Citation `DD' on page 2 undefined on input line 40.
 
 
-LaTeX Warning: Citation `DD' on page 3 undefined on input line 54.
+LaTeX Warning: Citation `DDISSTA' on page 2 undefined on input line 40.
 
 
-LaTeX Warning: Citation `DDISSTA' on page 3 undefined on input line 54.
+LaTeX Warning: Citation `Yesterday' on page 2 undefined on input line 40.
 
 
-LaTeX Warning: Citation `Yesterday' on page 3 undefined on input line 54.
+LaTeX Warning: Citation `icst2014' on page 2 undefined on input line 46.
 
 
-LaTeX Warning: Citation `icst2014' on page 3 undefined on input line 60.
+LaTeX Warning: Citation `issta14' on page 2 undefined on input line 47.
 
 
-LaTeX Warning: Citation `issta14' on page 3 undefined on input line 61.
-
-
-LaTeX Warning: Citation `PLDI13' on page 3 undefined on input line 62.
+LaTeX Warning: Citation `PLDI13' on page 2 undefined on input line 48.
 
 )
-Underfull \hbox (badness 1769) in paragraph at lines 53--60
+Underfull \hbox (badness 1769) in paragraph at lines 39--62
 []\OT1/ptm/m/n/10 This pa-per also fol-lows pre-vi-ous work on delta-
  []
 
-(D:\personal\arpit\seke2016\paper\formal.tex
+[2] (D:\personal\arpit\seke2016\seke2016\paper\formal.tex
 
 LaTeX Warning: Citation `yoo2014no' on page 3 undefined on input line 11.
 
 
-LaTeX Warning: Citation `CCT' on page 3 undefined on input line 14.
+LaTeX Warning: Citation `PLDI13' on page 3 undefined on input line 30.
 
 
-LaTeX Warning: Citation `PLDI13' on page 3 undefined on input line 40.
-
-[3]
-
-LaTeX Warning: Citation `ICST14' on page 4 undefined on input line 54.
+LaTeX Warning: Citation `Jones2002' on page 3 undefined on input line 51.
 
 
-LaTeX Warning: Citation `Jones2002' on page 4 undefined on input line 77.
+LaTeX Warning: Citation `Ochai' on page 3 undefined on input line 54.
 
 
-LaTeX Warning: Citation `Ochai' on page 4 undefined on input line 80.
-
-
-Overfull \hbox (2.34491pt too wide) detected at line 81
+Overfull \hbox (2.34491pt too wide) detected at line 55
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 e\OT1/cmr/m/n/10 ) = []
  []
 
 
-LaTeX Warning: Citation `Pinpoint' on page 4 undefined on input line 83.
+LaTeX Warning: Citation `Pinpoint' on page 3 undefined on input line 57.
 
 
-LaTeX Warning: Citation `EmpirReduce' on page 4 undefined on input line 86.
+LaTeX Warning: Citation `EmpirReduce' on page 3 undefined on input line 60.
 
 
-LaTeX Warning: Citation `StatDebug' on page 4 undefined on input line 86.
+LaTeX Warning: Citation `StatDebug' on page 3 undefined on input line 60.
 
 
-LaTeX Warning: Citation `EmpirReduce' on page 4 undefined on input line 91.
+LaTeX Warning: Citation `EmpirReduce' on page 3 undefined on input line 65.
 
 
-LaTeX Warning: Citation `PureTest' on page 4 undefined on input line 91.
+LaTeX Warning: Citation `PureTest' on page 3 undefined on input line 65.
+
+) (D:\personal\arpit\seke2016\seke2016\paper\casestudies.tex
+
+LaTeX Warning: Citation `AutoHelp' on page 3 undefined on input line 7.
 
 
-LaTeX Warning: Citation `AMPLE' on page 4 undefined on input line 91.
+LaTeX Warning: Citation `NearNeighbor' on page 3 undefined on input line 14.
 
 
-LaTeX Warning: Citation `Theoretical' on page 4 undefined on input line 92.
+LaTeX Warning: Citation `AutoHelp' on page 3 undefined on input line 22.
 
-) (D:\personal\arpit\seke2016\paper\casestudies.tex
-
-LaTeX Warning: Citation `AutoHelp' on page 4 undefined on input line 7.
-
-
-LaTeX Warning: Citation `NearNeighbor' on page 4 undefined on input line 14.
-
-
-LaTeX Warning: Citation `AutoHelp' on page 4 undefined on input line 22.
-
-[4] (D:\personal\arpit\seke2016\paper\sir.tex
-<siemens1.pdf, id=26, 361.35pt x 252.945pt>
+(D:\personal\arpit\seke2016\seke2016\paper\sir.tex
+<siemens1.pdf, id=17, 361.35pt x 252.945pt>
 File: siemens1.pdf Graphic file (type pdf)
  <use siemens1.pdf>
 Package pdftex.def Info: siemens1.pdf used on input line 4.
 (pdftex.def)             Requested size: 426.84541pt x 298.79286pt.
 
-<siemens2.pdf, id=27, 361.35pt x 252.945pt>
+<siemens2.pdf, id=18, 361.35pt x 252.945pt>
 File: siemens2.pdf Graphic file (type pdf)
  <use siemens2.pdf>
 Package pdftex.def Info: siemens2.pdf used on input line 11.
@@ -513,119 +473,86 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 27.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
+) [3]
 
-LaTeX Warning: Citation `doESE05' on page 5 undefined on input line 49.
-
-
-LaTeX Warning: Citation `Siemens' on page 5 undefined on input line 49.
+LaTeX Warning: Citation `doESE05' on page 4 undefined on input line 49.
 
 
-LaTeX Warning: Citation `Tarantula' on page 5 undefined on input line 52.
+LaTeX Warning: Citation `Siemens' on page 4 undefined on input line 49.
 
-[5]
+
+LaTeX Warning: Citation `Tarantula' on page 4 undefined on input line 52.
+
+[4 <D:/personal/arpit/seke2016/seke2016/paper/siemens1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(D:\personal\arpit\seke2016\paper\spidermonkey.tex
+(D:\personal\arpit\seke2016\seke2016\paper\spidermonkey.tex
 
-LaTeX Warning: Citation `jsfunfuzz' on page 6 undefined on input line 4.
-
-
-LaTeX Warning: Citation `jsfunfuzzbugs' on page 6 undefined on input line 6.
+LaTeX Warning: Citation `jsfunfuzz' on page 5 undefined on input line 4.
 
 
-LaTeX Warning: Citation `jsfunfuzz' on page 6 undefined on input line 11.
+LaTeX Warning: Citation `jsfunfuzzbugs' on page 5 undefined on input line 6.
 
 
-LaTeX Warning: Citation `ISSTA12' on page 6 undefined on input line 11.
+LaTeX Warning: Citation `jsfunfuzz' on page 5 undefined on input line 11.
 
 
-LaTeX Warning: Citation `PLDI13' on page 6 undefined on input line 13.
-
-[6 <D:/personal/arpit/seke2016/paper/siemens1.pdf>]
-Underfull \vbox (badness 1924) has occurred while \output is active []
+LaTeX Warning: Citation `ISSTA12' on page 5 undefined on input line 11.
 
 
-<naspidermonkey.pdf, id=39, 361.35pt x 252.945pt>
+LaTeX Warning: Citation `PLDI13' on page 5 undefined on input line 13.
+
+[5 <D:/personal/arpit/seke2016/seke2016/paper/siemens2.pdf>]
+<naspidermonkey.pdf, id=37, 361.35pt x 252.945pt>
 File: naspidermonkey.pdf Graphic file (type pdf)
  <use naspidermonkey.pdf>
-Package pdftex.def Info: naspidermonkey.pdf used on input line 63.
+Package pdftex.def Info: naspidermonkey.pdf used on input line 58.
 (pdftex.def)             Requested size: 474.27188pt x 331.99335pt.
 
 
-LaTeX Warning: Citation `PLDI13' on page 7 undefined on input line 72.
+LaTeX Warning: Citation `PLDI13' on page 6 undefined on input line 67.
 
 
-LaTeX Warning: Citation `PLDI13' on page 7 undefined on input line 83.
+LaTeX Warning: Citation `PLDI13' on page 6 undefined on input line 78.
 
-[7 <D:/personal/arpit/seke2016/paper/siemens2.pdf>]
+) (D:\personal\arpit\seke2016\seke2016\paper\opensource.tex
 
-LaTeX Warning: Citation `AutoHelp' on page 8 undefined on input line 136.
-
-) [8 <D:/personal/arpit/seke2016/paper/naspidermonkey.pdf>]
-(D:\personal\arpit\seke2016\paper\opensource.tex
-
-LaTeX Warning: Citation `Dangerous' on page 9 undefined on input line 95.
+LaTeX Warning: Citation `mutant' on page 6 undefined on input line 39.
 
 
-LaTeX Warning: Citation `Dangerous' on page 9 undefined on input line 124.
-
-[9] <opensource1.pdf, id=56, 361.35pt x 252.945pt>
-File: opensource1.pdf Graphic file (type pdf)
- <use opensource1.pdf>
-Package pdftex.def Info: opensource1.pdf used on input line 135.
-(pdftex.def)             Requested size: 237.13594pt x 165.99474pt.
-
-<opensource2.pdf, id=57, 361.35pt x 252.945pt>
-File: opensource2.pdf Graphic file (type pdf)
- <use opensource2.pdf>
-Package pdftex.def Info: opensource2.pdf used on input line 142.
-(pdftex.def)             Requested size: 237.13594pt x 165.99474pt.
+LaTeX Warning: Citation `PureTest' on page 6 undefined on input line 39.
 
 
-LaTeX Warning: Citation `Mut2000' on page 10 undefined on input line 152.
+LaTeX Warning: Citation `PureTest' on page 6 undefined on input line 47.
+
+[6])
+
+LaTeX Warning: Citation `Threats' on page 7 undefined on input line 41.
 
 
-LaTeX Warning: Citation `mutant' on page 10 undefined on input line 154.
+LaTeX Warning: Citation `Threats' on page 7 undefined on input line 45.
 
 
-LaTeX Warning: Citation `PureTest' on page 10 undefined on input line 154.
+LaTeX Warning: Citation `Jones07' on page 7 undefined on input line 58.
 
 
-LaTeX Warning: Citation `PureTest' on page 10 undefined on input line 156.
-
-)
-
-LaTeX Warning: Citation `Threats' on page 10 undefined on input line 57.
+LaTeX Warning: Citation `PLDI13' on page 7 undefined on input line 58.
 
 
-LaTeX Warning: Citation `Threats' on page 10 undefined on input line 61.
+LaTeX Warning: Citation `Podgurski03' on page 7 undefined on input line 58.
 
 
-LaTeX Warning: Citation `Jones07' on page 10 undefined on input line 83.
+LaTeX Warning: Citation `Podgurski04' on page 7 undefined on input line 58.
+
+) (D:\personal\arpit\seke2016\seke2016\paper\conclusions.tex
+
+LaTeX Warning: Citation `AutoHelp' on page 7 undefined on input line 23.
 
 
-LaTeX Warning: Citation `PLDI13' on page 10 undefined on input line 83.
+LaTeX Warning: Citation `yoo2014no' on page 7 undefined on input line 29.
 
-
-LaTeX Warning: Citation `Podgurski03' on page 10 undefined on input line 83.
-
-
-LaTeX Warning: Citation `Podgurski04' on page 10 undefined on input line 83.
-
-) [10 <D:/personal/arpit/seke2016/paper/opensource1.pdf> <D:/personal/arpit/sek
-e2016/paper/opensource2.pdf>] (D:\personal\arpit\seke2016\paper\conclusions.tex
-
-LaTeX Warning: Citation `Dangerous' on page 11 undefined on input line 35.
-
-
-LaTeX Warning: Citation `AutoHelp' on page 11 undefined on input line 48.
-
-
-LaTeX Warning: Citation `yoo2014no' on page 11 undefined on input line 54.
-
-)
+) [7 <D:/personal/arpit/seke2016/seke2016/paper/naspidermonkey.pdf>]
 No file mintest.bbl.
 
 ** Conference Paper **
@@ -638,7 +565,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[11] (D:\personal\arpit\seke2016\paper\mintest.aux)
+[8
+
+] (D:\personal\arpit\seke2016\seke2016\paper\mintest.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -647,13 +576,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 2739 strings out of 493921
- 40015 string characters out of 3144880
- 110352 words of memory out of 3000000
- 5979 multiletter control sequences out of 15000+200000
- 52787 words of font info for 107 fonts, out of 3000000 for 9000
+ 2712 strings out of 493921
+ 39897 string characters out of 3144880
+ 105336 words of memory out of 3000000
+ 5957 multiletter control sequences out of 15000+200000
+ 51042 words of font info for 102 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 31i,14n,22p,808b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 31i,14n,22p,1090b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
@@ -662,15 +591,14 @@ les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
 86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/u
-rw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/ut
-mr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb><
-C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on mintest.pdf (11 pages, 214893 bytes).
+X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/
+utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on mintest.pdf (8 pages, 174862 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
