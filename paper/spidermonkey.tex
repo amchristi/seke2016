@@ -96,20 +96,3 @@ localization may be useful in such a large fault search space.  For 6
 of the 10 bugs, all scores after reduction gave the fault a ranking of
 128 or better.  
 
-In order to expand on how reduction improves localization, we examine in more detail the bug
-we call ``R1543,'' fixed by commit 3.36.16.1, and its Tarantula
-localization.  In our experiments, there were 146 test cases that
-failed due to bug R1543.  The relevant commit contains three kind of
-changes: (1) a rename refactoring, (2) a refactoring for readability,
-and (3) the actual fault fix.  The fault is in {\tt jsexn.c}, in the
-function {\tt Exception}. Comparing diffs of R1542 and R1543 we were
-able to identify lines 583, 587, 589, 590 and 594 as the actual faulty
-code. Before reduction, these lines (all with suspiciousness 0.716605)
-had rankings from 191 on (ranking is arbitrary among buggy lines of
-same suspiciousness).  After reduction, the rankings improved to start
-at 98.  The suspiciousness values of faulty lines, as discussed in Section
-\ref{formal}, remained unchanged.  However, many higher ranked non-faulty lines
-became less suspicious after being removed from failing tests.  The
-average coverage for an unreduced failing test was 11,461 lines, which
-decreased to 8,349 (an average decrease of 3,112 lines) after reduction.
-
