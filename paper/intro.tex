@@ -81,19 +81,7 @@ variation on binary search to remove individual components of a
 failing test case $t$ to produce a \emph{new} test case $t_{1min}$
 satisfying two properties: (1) $t_{1min}$ fails and (2) removing any
 component from $t_{1min}$ results in a test case that does not fail.
-Such a test case is called \emph{1-minimal}. The precise
-details of delta-debugging and its variants can be complex; however,
-the family of delta debugging algorithms can generally be simply
-described.  DD for a
-failing test case $t_b$ proceeds by iterating the following two
-steps:
-
-\begin{enumerate}
-\item Construct the next candidate simplification of $t_b$, which
-we call $t_c$.  Terminate if no $t_c$ remain ($t_b$ is 1-minimal).
-\item Execute $t_c$ by calling $\mathit{rtest}(t_c)$.  If $\mathit{rtest}$ returns \ding{55} (the test fails) then it is a simplification of $t_b$.  Set $t_b = t_c$.
-\end{enumerate}
-
+Such a test case is called \emph{1-minimal}. 
 Delta-debugging reduces the size of a test case in terms of its
 components.  Its purpose is to produce small test cases that are
 easier for humans to read and understand, and thus debug.  In our long
@@ -110,15 +98,7 @@ localization}: {\bf reduce before you localize}.  The original,
 unreduced, test cases should not be used, as they likely contain much
 irrelevant, non-faulty code that may mislead localization.
 
-Given that delta-debugging is extremely valuable on
-its own merits in debugging (it is generally agreed that it is
-absolutely required for effective random testing, for example
-\cite{MinUnit,ICSEDiff,TCminim}) and fits well into Parnin and Orso's
-proposal that debugging aids should focus on integrating all sources
-of information, including actual test cases, applying delta-debugging
-to failing test cases before localizing them is a low-cost,
-potentially high-value modification to spectrum-based fault
-localization.  Even if reduction does not improve the localization, we
+Even if reduction does not improve the localization, we
 show that under some reasonable assumptions it will not produce a
 \emph{worse} localization, and at least the developer now has a set of
 smaller, easier-to-understand test cases to read.  In fact, we believe
