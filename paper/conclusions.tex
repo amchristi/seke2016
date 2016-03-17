@@ -27,22 +27,7 @@ increases, or forcing reductions to actually reduce coverage as well
 as input size.  In theory, mutation of input as well as reduction
 could be applied, to see if nearby inputs cover less code but still
 fail (however, this requires an algorithm other than delta-debugging,
-and introduces a very large state space).  A second line of future
-work is to find a way to investigate actual ``dark matter'' bugs
-missing from the source histories and bug databases of projects.  Our
-use of mutants to simulate such faults is somewhat plausible but
-clearly not satisfactory.  One approach might be to use developer
-interviews or (more likely) captured IDE history \cite{Dangerous} to
-look into this type of fault, but this is resource-intensive and
-unlikely to be possible or remotely complete for many projects
-(e.g. open source projects have many developers, unlikely to all use
-an instrumented IDE).  Simply confirming (or refuting) the development
-patterns we speculate may give rise to ``dark matter'' bugs would be a
-useful contribution to understanding the real problems of
-localization.  More specific aspects of this question also arise: for
-example, what fraction of test cases in typical open source projects
-are specially crafted in response to a bug, rather than produced in
-hopes of detecting future bugs?
+and introduces a very large state space).  
 
 Our larger take-away message is that the lessons of Parnin and Orso
 \cite{AutoHelp} should be taken to heart: rather than seek incremental
