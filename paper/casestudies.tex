@@ -22,23 +22,7 @@ statements a 1.0 score. In our view, following Parnin and Orso
 \cite{AutoHelp}, the most important goal of a localization is to
 direct the developer to a faulty statement as rapidly as possible,
 ignoring the size of the entire program or even of the faulty
-execution.  We considered counting all statements in the same basic
-block as ``the fault,'' given that spectrum-based approaches using
-statement coverage cannot localize below this granularity, but
-rejected this due to the potential need to eventually compare results
-with more sophisticated methods that use state or other information to
-provide finer-grained localizations.  In practice, due to basic block
-sizes and the fact that programmers won't always be ``unlucky'' and
-read the faulty code last, pessimistic rank may not show all cases
-where a localization would be useful in practice, but its primary
-purpose here is comparison.  We note that we did not provide
-statistical test information for our results because none of our
-experiments could be considered as sampled from some random
-distribution; given a suite and fault, results are not stochastic.
-Despite our efforts, the set of programs and faults used is not really
-a basis for precise statistical inferences.  We note that performing
-such an analysis would, of course, show the improvements of reduction
-to be statistically significant.
+execution.  
 
 \subsection{SIR Programs}
 \input{sir}
