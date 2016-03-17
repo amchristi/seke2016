@@ -21,22 +21,13 @@ used in localization rather than change their interpretation.  The
 primary advantage of their approach over ours is that it can be of use
 when test cases cannot be reduced; on the other hand, EvoSuite is
 probably considerably harder to apply for most developers than
-off-the-shelf delta-debugging, and the delta-debugged test cases
-themselves are highly useful debugging products.  We also provide
-results for more localizations and many more programs (and types of
-programs).  Examining the faults used in their work, we suspect some
-of the open source failing test cases would reduce to a
-trivial-to-debug test case covering almost no non-faulty code.
+off-the-shelf delta-debugging.
 Another similar approach (sharing the same novel aspect of changing
 the test cases examined rather than the scoring function) is that of
 Xuan and Monperrus, who propose a \emph{purification} for test cases
 \cite{PureTest} that executes omitted assertions and uses dynamic
 slicing \cite{DynamicSlicing} to remove some code from failing test
-cases (parameterized by each assertion).  In practice, their dynamic
-slicing is performing some of the work we relegate to delta-debugging,
-and some of the effectiveness of their method is presumably due to
-lowering coverage of non-faulty code in the same manner, though this
-is not their explicit goal.  Delta-debugging can remove code from unit
+cases (parameterized by each assertion). Delta-debugging can remove code from unit
 tests that would be in any dynamic slice, since it does not have to
 respect any property but that the test case still fails.  A core
 practical difference is that their approach \emph{only} applies to
