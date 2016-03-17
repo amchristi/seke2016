@@ -14,37 +14,37 @@
 \end{figure*}
 
 
-\begin{table*}
+\begin{table}
 \begin{center}
-\begin{tabular}{|c||c|c|c|c|c||c|c|c|c|c|}
+\begin{tabular}{|c||c|c|c|c|c|}
 \hline
 \hline
-& \multicolumn{5}{|c|}{With AMPLE} & \multicolumn{5}{|c|}{Without AMPLE} \\
+
 \hline
-Subject & Avg. & Avg. (DD) & \#Better & \#Same & \#Worse & Avg. & Avg. (DD) & \#Better & \#Same & \#Worse \\
-\hline
-\hline
-{\tt print\_tokens} & 59.7 & 36.4 & 19 & 15 & 1 & 59.7 & 29.7 & 18 & 10 & 0 \\
-\hline
-{\tt print\_tokens2} & 26.8 & 9.2 & 23 & 20 & 7 & 27.0 & 5.8 & 19 & 17 & 4 \\
-\hline
-{\tt replace} & 26.5 & 24.6 & 38 & 98 & 19 & 24.5 & 21.8 & 37 & 76 & 11 \\
-\hline
-{\tt schedule} & 13.1 & 22.7 & 18 & 16 & 11 & 7.7 & 14.3 & 18 & 14 & 4 \\
-\hline
-{\tt schedule2} & 100.3 & 88.4 & 29 & 17 & 4 & 92.4 & 76.6 & 28 & 12 & 0 \\ 
-\hline
-{\tt tot\_info} & 34.1 & 26.05 & 82 & 24 & 9 & 29.7 & 17.7 & 75 & 16 & 1\\
+Subject & Avg. & Avg. (DD) & \#Better & \#Same & \#Worse \\
 \hline
 \hline
-{\bf Total} & & & 209 & 190 & 51 & & & 195 & 145 & 20 \\
+{\tt print\_tokens} & 59.7 & 36.4 & 19 & 15 & 1  \\
+\hline
+{\tt print\_tokens2} & 26.8 & 9.2 & 23 & 20 & 7  \\
+\hline
+{\tt replace} & 26.5 & 24.6 & 38 & 98 & 19  \\
+\hline
+{\tt schedule} & 13.1 & 22.7 & 18 & 16 & 11  \\
+\hline
+{\tt schedule2} & 100.3 & 88.4 & 29 & 17 & 4 \\ 
+\hline
+{\tt tot\_info} & 34.1 & 26.05 & 82 & 24 & 9 \\
+\hline
+\hline
+{\bf Total} & & & 209 & 190 & 51  \\
 \hline
 \hline
 \end{tabular}
 \end{center}
 \caption{SIR Fault Rank Change Result Frequencies}
 \label{tab:avgimproved}
-\end{table*}
+\end{table}
 
 Our initial experiments use the Siemens/SIR \cite{doESE05,Siemens}
 suite programs studied in many previous papers on fault localization,
