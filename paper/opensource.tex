@@ -36,29 +36,29 @@ Subject & \#Classes. & \#Methods & SLOC & \#Test cases \\
 
 
 Next we applied reduction based localization to five open source Java
-programs (shown in Table \ref{tab:opensourcesubs}) and generating mutants for each of the project to simulate bugs as it is commonly done in recent fault localization literature.\cite{mutant} \cite{PureTest}
+programs (shown in Table \ref{tab:opensourcesubs}), generating mutants
+for each of the projects to simulate bugs as in some recent
+localization papers \cite{mutant,PureTest}.
 
 
 
 
 
  
-Our strategy was to create mutants in the same way as Xuan and
-Monperrus \cite{PureTest} in their own localization work, using 6
-mutant operators.  From each set of mutants generated, we selected 5
-or 6 mutants at random that met the following criteria: (1) the mutant
-was killed by at least one test case and (2) the mutant generated no
-errors in JUnit test cases.  A JUnit failure is caused by an
-unsatisfied assertion, but an error is caused by another kind of test
-failure, which may include some test setup or oracle problems.  Using
-assertion failures only assures that we were remaining within the
-intent of the original tests.
+Our strategy was to create mutants using the approach of Xuan and
+Monperrus \cite{PureTest}, using 6 mutant operators.  From each set of
+mutants generated, we selected 5 or 6 mutants at random that met the
+following criteria: (1) the mutant was killed by at least one test
+case and (2) the mutant generated no errors in JUnit test cases.  A
+JUnit failure is caused by an unsatisfied assertion, but an error is
+caused by another kind of test failure, which may include some test
+setup or oracle problems.  Using assertion failures only assured that
+we retained the intent of the original tests.
 
-Detailed results of applying reduction based localization to all these bugs are available on our website. Taking all
-the open source projects and mutants together, we note that reduction
-improved fault ranking in 51 cases, left it unchanged in 55 cases, and
-made it worse in 2 cases.  The average improvement was 17.62 ranking
-positions; the average negative effect size was 2 ranking positions.
-The best improvement was 100
-rank positions.  The average fault ranking without
-reduction was 37.64 and with reduction it improved to 29.36.  
+Taking all the open source projects and mutants together, we note that
+reduction improved fault ranking in 51 cases, left it unchanged in 55
+cases, and made it worse in only 2 cases.  The average improvement was
+17.62 ranking positions; the average negative effect size was 2
+ranking positions.  The best improvement was 100 rank positions.  The
+average fault ranking without reduction was 37.64, and with reduction
+this improved to 29.36.

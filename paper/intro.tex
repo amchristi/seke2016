@@ -36,16 +36,15 @@ simple, easily applied, improvement to localization that works with
 any formula (or other modification to the method we are aware of), has
 benefits to developers even if they ignore the localization, and often
 produces very large improvements in what we consider the most
-important measure of localization effectiveness, the absolute worst
+important quantitative measure of localization effectiveness, the absolute worst
 possible ranking of the faulty code.
 
 \subsection{Reduce Before You Localize}
 
-Failing test cases, apart from executing faulty code normally executes large amount of non faulty code also, which makes debugging and fault localization non trivial.  It is
-often impossible to produce a failing test case that
-executes only faulty code. Due to the way spectrum-based localizations work,
+Failing test cases usually execute much more non-faulty code than
+faulty code, and in a sense it is essentially this fact that makes fault localization difficult.. Due to the way spectrum-based localizations work,
 reducing the amount of non-faulty code executed in failing test cases
-will almost always improve localization.  Consider the Tarantula
+should almost always improve localization.  Consider the Tarantula
 \cite{Jones2002,Tarantula} formula.  Tarantula, like most spectrum-based
 approaches, determines how suspicious (likely to be faulty) a coverage
 entity $e$ (typically a statement) is based on a few values computed over
@@ -67,12 +66,9 @@ rank (in suspiciousness) of faulty statements will improve.   Reducing coverage 
 statements in failing tests, then, is a potentially very effective  and
 formula-independent approach to improving localizations.
 
-Unfortunately, there is no method in the literature for reducing the
-amount of non-faulty code executed in test cases, to our
-knowledge.\footnote{Cause reduction \cite{icst2014}, as we note later,
-could probably be used for this purpose, but might be expensive and
-has not been applied to this goal.}  However, there \emph{is} a widely
-used method for reducing the size of failing test cases, delta-debugging.
+Unfortunately, there is no method we know of in the literature for reducing the
+amount of non-faulty code executed in a test.  However, there \emph{is} a widely
+used method for reducing the \emph{size} of failing test cases, delta-debugging.
 
 Delta-debugging \cite{DD} (DD for short) is an algorithm for reducing
 the size of failing test cases.  Delta-debugging algorithms have
@@ -87,7 +83,7 @@ components.  Its purpose is to produce small test cases that are
 easier for humans to read and understand, and thus debug.  In our long
 experience with delta-debugging \cite{ICSEDiff,AMAI} and in recent
 work on variations and applications of delta-debugging
-\cite{icst2014,issta14,PLDI13}, we noticed that in addition to
+\cite{icst2014,issta14,PLDI13,NonAdeq}, we noticed that in addition to
 reducing the ``static'' human-readable text of a test case,
 delta-debugging also almost always \emph{reduces the code covered by a
 failing test case}, often by hundreds or thousands of lines
