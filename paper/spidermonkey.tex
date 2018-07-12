@@ -76,8 +76,8 @@ and the size (in lines) of the fixing commit's {\tt diff}.  The faults
 under consideration here are clearly non-trivial (in fact, most fixes
 involved changes to multiple source files).  For our localization we
 used the original and reduced test cases from PLDI 13 \cite{PLDI13}
-plus a set of 720 randomly generated passing tests generated using the same method as in
-the original data set.
+plus 720 additional randomly generated \emph{passing} tests generated
+using the same tool.
 
 Across these 10 bugs, the average ranking for the first faulty line
 encountered was 1,550.7 without reduction, improving to 994.5 with
@@ -96,6 +96,5 @@ improving localization, it is also true that the localization was
 SpiderMonkey 1.6 has over 80KLOC, and even reduced failing tests
 typically executed over 8,000 lines of code, so a ``poor''
 localization may be useful in such a large fault search space.  For 6
-of the 10 bugs, all scores after reduction gave the fault a ranking of
-128 or better.  
+of the 10 bugs, all scores after reduction gave a fault ranking $< 128$.
 
