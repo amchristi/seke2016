@@ -16,10 +16,8 @@
 
 \begin{table}
 \begin{center}
+\resizebox{\columnwidth}{!}{
 \begin{tabular}{|c||c|c|c|c|c|}
-\hline
-\hline
-
 \hline
 Subject & Avg. & Avg. (DD) & \#Better & \#Same & \#Worse \\
 \hline
@@ -39,11 +37,13 @@ Subject & Avg. & Avg. (DD) & \#Better & \#Same & \#Worse \\
 \hline
 {\bf Total} & & & 195 & 145 & 20  \\
 \hline
-\hline
-\end{tabular}
+\end{tabular}%
+}
 \end{center}
+%\vspace{-5mm}
 \caption{SIR Fault Rank Change Result Frequencies}
 \label{tab:avgimproved}
+\vspace{-5mm}
 \end{table}
 
 Our initial experiments use the Siemens/SIR \cite{doESE05,Siemens}
@@ -75,10 +75,11 @@ of the original (correct) version of the program and the faulty
 version as a pass/fail oracle.
 
 Figures \ref{fig:allSIR1} and \ref{fig:allSIR2} show the
-results\footnote{Version 32 of {\tt replace} is missing because the
-fault relies on the library definition of {\tt isalnum}, and is no
-longer present on modern Linux systems, as we determined after
-communicating with Gregg Rothermel and the SIR maintainers.}.  The
+results
+%\footnote{Version 32 of {\tt replace} is missing because the fault relies on the library definition of {\tt isalnum}, and is no
+%longer present on modern Linux systems, as we determined after
+%communicating with Gregg Rothermel and the SIR maintainers.}.  
+The
 lighter shaded bars show the ranking of the fault, without any
 reduction.  The darker bars show the ranking after delta-debugging all
 failures.  The graphs are shown in log-scale due to the range of
@@ -120,8 +121,9 @@ only 22 cases.
 
 \begin{table}
 \begin{center}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|c||c|c|c||c|c|c|}
-\hline
+%\hline
 \hline
 & \multicolumn{3}{|c|}{Better} & \multicolumn{3}{|c|}{Worse} \\
 Subject & Min & Max & Avg. & Min & Max & Avg \\
@@ -139,8 +141,9 @@ Subject & Min & Max & Avg. & Min & Max & Avg \\
 \hline
 {\tt tot\_info} & 1 & 81 & 14.7 & 3 & 3 & 3.0 \\
 \hline
-\hline
-\end{tabular}
+%\hline
+\end{tabular}%
+}
 \end{center}
 \caption{SIR Fault Rank Change Effect Sizes}
 \label{tab:rankchange}

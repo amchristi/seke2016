@@ -9,9 +9,10 @@ Because we aim to take into account the findings of Parnin and Orso
 statement.  That is, for each set of suspiciousness metrics computed,
 our measure of effectiveness is the \emph{worst possible position} at
 which the first faulty statement can be reached, when examining the
-code in suspiciousness-ranked order.\footnote{As usual since at least
-the work of Reneiris and Reiss\cite{NearNeighbor}, we consider
-reaching \emph{any} faulty statement to be sufficient.}  For example,
+code in suspiciousness-ranked order.
+\footnote{We consider reaching \emph{any} faulty statement to be sufficient, as in \cite{NearNeighbor}.}
+%\footnote{As usual since at least the work of Reneiris and Reiss\cite{NearNeighbor}, we consider reaching \emph{any} faulty statement to be sufficient.}  
+For example,
 if ten statements all receive a suspiciousness score of 1.0 (the
 highest possible suspiciousness), and one of these is the fault, we
 assign this localization a rank of 10; an unlucky programmer might
