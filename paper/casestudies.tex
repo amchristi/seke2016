@@ -1,7 +1,7 @@
 \section{Experimental Results}
 \label{sec:experiments}
 
-\subsection{Evaluation Measure}
+%\subsection{Evaluation Measure}
 
 Because we aim to take into account the findings of Parnin and Orso
 \cite{AutoHelp}, our evaluation of fault localizations is based on a
@@ -40,8 +40,8 @@ execution.
 
 The primary threats to validity here are to external validity
 \cite{Threats}, despite our use of a reasonable number of faults and subjects.  Our subjects are all C or
-Java programs, for example, and for the open source projects we used
-seeded rather than real faults.  To avoid
+Java programs, for example, and only the SpiderMonkey faults are
+definitely real faults that required substantial developer time to debug.  To avoid
 construct threats, we developed independent experimental code-bases
 for some of the subjects, executed both, and compared results to
 cross-check the shared code base used for all subjects.  Fortunately,
@@ -52,6 +52,6 @@ A second point (not strictly a threat) is that this paper focuses on
 single-fault localization.    Even when
 there are multiple faults, it may be better to use techniques for
 clustering test cases by likely fault 
-\cite{Jones07,PLDI13,Podgurski04} and then perform
+\cite{Jones07,PLDI13,Podgurski04,ISSRE18} and then perform
 single-fault localization than to try to localize multiple faults at
 once.

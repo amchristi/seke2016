@@ -7,11 +7,11 @@ SpiderMonkey \cite{jsfunfuzzbugs}.  SpiderMonkey is (and was) very
 actively developed, with over 6,000 code commits in the period from
 1/06 to 9/11 (nearly 4 commits/day).  SpiderMonkey is thus ideal for
 evaluating how reduction aids localization when using a sophisticated
-random testing system, using the last public release of the
+random testing system, using the last public release of the original
 \texttt{jsfunfuzz} tool \cite{jsfunfuzz}, modified for swarm testing \cite{ISSTA12}.
-Using a set of faults in SpiderMonkey version 1.6 found with random
-testing in previous research \cite{PLDI13}, we show that reduction is
-essential for localization of bugs found using random testing, and
+Using a set of faults in SpiderMonkey 1.6 found with random
+testing \cite{PLDI13}, we find that reduction is
+essential for localization of these complex compiler bugs, and
 that the use of reduction is even somewhat more important than the
 choice of localization formula.  
 
@@ -63,7 +63,7 @@ Bug\# & Revision Fixed &  \#Failures & {\tt diff} size \\
 
 Figure \ref{fig:spidermonkey} shows the change in rankings of the
 faulty code for 10 SpiderMonkey bugs (Table \ref{tab:spiderbugs}).
-These bugs were taken from our PLDI 2013 data set \cite{PLDI13}.  Out
+These bugs were taken from a data set used in previous fault identification papers \cite{PLDI13,ISSRE18}.  Out
 of the 28 bugs studied in that paper we chose 10 random bugs for which, by
 hand, we could confirm the true set of faulty lines in the code
 commit.  Each bug is identified by the revision number of the commit
@@ -73,8 +73,8 @@ commit of Spidermonkey changes under consideration. Table
 the bug, the number of failing test cases for that bug (\# Failures),
 and the size (in lines) of the fixing commit's {\tt diff}.  The faults
 under consideration here are clearly non-trivial (in fact, most fixes
-involved changes to multiple source files).  For our localization we
-used the original and reduced test cases from PLDI 13 \cite{PLDI13}
+involved changes to multiple source files).  For localization we
+used the original and reduced test cases \cite{PLDI13}
 plus 720 additional randomly generated \emph{passing} tests generated
 using the same tool.
 
@@ -95,5 +95,6 @@ improving localization, it is also true that the localization was
 SpiderMonkey 1.6 has over 80KLOC, and even reduced failing tests
 typically executed over 8,000 lines of code, so a ``poor''
 localization may be useful in such a large fault search space.  For 6
-of the 10 bugs, all scores after reduction gave a fault ranking $< 128$.
+of the 10 bugs, all scores after reduction gave a fault ranking $<
+128$; without localization, there were only 4 such bugs.
 
